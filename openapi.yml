@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: SAC106 - APIs Definition
+  title: APIs Definition
   description: |
      OpenAPI specification for SAC106
   contact:
