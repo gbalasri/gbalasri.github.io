@@ -8,7 +8,7 @@ info:
     email: support@xyz.com
   version: 0.0.1
 servers:
-  - url: https://www-dev.star.euclid.ed.ac.uk/public/urd/sits.urd/run/SIW_RWS
+  - url: https://dev.api.ed.ac.uk/students/api/v1/
     description: Development server
 paths:
  /student/uun/{uun}:
