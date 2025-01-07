@@ -1,0 +1,41 @@
+openapi: 3.0.3
+info:
+  title: EazyShop Products APIs Definition
+  description: |
+     OpenAPI specification for SAC106
+  contact:
+    name: API Support
+    email: support@xyz.com
+  version: 0.0.1
+servers:
+  - url: https://www-dev.star.euclid.ed.ac.uk/public/urd/sits.urd/run/SIW_RWS
+    description: Development server
+paths:
+  /titles:
+    get:
+      summary: List all Titles
+      description: Returns the list of Titles for the Student
+      parameters:
+        - name: MAXHITS
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+          example: 101
+      responses:
+        '200':
+          description: A list of Titles
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    titleCode:
+                      type: string
+                    title:
+                      type: string
+					inUse:
+                      type: string
