@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: EazyShop Products APIs Definition
+  title: SAC106 - APIs Definition
   description: |
      OpenAPI specification for SAC106
   contact:
