@@ -37,5 +37,3 @@ paths:
                       type: string
                     title:
                       type: string
-					inUse:
-                      type: string
