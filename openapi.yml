@@ -10,6 +10,15 @@ info:
 servers:
   - url: https://dev.api.ed.ac.uk/students/api/v1/
     description: Development server
+components:
+  securitySchemes:
+    AuthorizationHeader:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'Use this header to pass the token for authorization'
+security:
+  - AuthorizationHeader: []
 paths:
  /student/uun/{uun}:
     get:
@@ -30,7 +39,7 @@ paths:
         '200':
           description: ok
       security:
-        - default: []
+        - AuthorizationHeader: []
       x-auth-type: Application & Application User
       x-throttling-tier: Unlimited
       x-throttling-limit:
