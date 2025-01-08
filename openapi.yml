@@ -28,11 +28,6 @@ paths:
           required: true
           schema:
             type: string
-        - name: Authorization
-          in: header
-          required: true
-          schema:
-            type: string
       responses:
         '200':
           description: ok
