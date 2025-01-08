@@ -14,23 +14,19 @@
   <script src="//unpkg.com/swagger-ui-dist@3/swagger-ui-bundle.js"></script>
   <script>
 
-    window.onload = function() {
-
-      const ui = SwaggerUIBundle({
-        url: "openapi.yml",
-        dom_id: "#SAC106-OAS",
-        deepLinking: true,
-       requestInterceptor: (req) => 
-         {       
-           // Add the Authorization header dynamically here      
-           req.headers['Authorization'] = 'Bearer YOUR_TOKEN_HERE';       
-           return req; 
-         }
-      })
-
+  window.onload = function() {
+  const ui = SwaggerUIBundle({
+    url: "openapi.yml",
+    dom_id: "#SAC106-OAS",
+    deepLinking: true,
+    requestInterceptor: (req) => {
+      // Add the Authorization header dynamically here
+      req.headers['Authorization'] = 'Bearer YOUR_TOKEN_HERE';
+      return req;
     }
-
-  </script>
+  });
+}
+</script>
 
 </body>
 </html>
