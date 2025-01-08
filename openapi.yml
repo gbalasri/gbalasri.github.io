@@ -31,10 +31,6 @@ paths:
       responses:
         '200':
           description: ok
-      security:
-        - AuthorizationHeader: []
       x-auth-type: Application & Application User
       x-throttling-tier: Unlimited
       x-throttling-limit:
-        requestCount: -1
-        unit: MINUTE
