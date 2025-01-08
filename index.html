@@ -19,11 +19,7 @@
     url: "openapi.yml",
     dom_id: "#SAC106-OAS",
     deepLinking: true,
-    requestInterceptor: (req) => {
-      // Add the Authorization header dynamically here
-      req.headers['Authorization'] = 'Bearer YOUR_TOKEN_HERE';
-      return req;
-    }
+  
   });
 }
 </script>
