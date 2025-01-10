@@ -45,11 +45,11 @@ paths:
                     type: string
 
         '401':
-          description: Unauthorized
+         description: Unauthorized
         '403':
-          description: Forbidden
+         description: Forbidden
         '404':
-          description: Record not found 
+         description: Record not found 
   /subject/code/{code}:
     get:
       parameters:
@@ -76,12 +76,72 @@ paths:
                     type: string
                   programmeAreaName:
                     type: string
+                  subjectGroupCode:
+                    type: string
+                  subjectGroupName:
+                    type: string
+                  costCentreCode:
+                    type: string
+                  costCentreName:
+                    type: string
+                  externalSubjectCode:
+                    type: string
+                  externalSubjectName:
+                   type: string
+                  roomSpecific:
+                   type: string
+                  atasSensitiveResearch:
+                   type: boolean
+                  atasSensitiveTaught:
+                   type: boolean
+                  level6Unit:
+                   type: string
+                  jacsCodeReview:
+                   type: string
+                  costCentreReview:
+                   type: string
+                  sfcFundingGroupOnSub:
+                   type: string
+                  type:
+                   type: string
         '401':
-          description: Unauthorized
+         description: Unauthorized
         '403':
-          description: Forbidden
+         description: Forbidden
         '404':
-          description: Record not found 
+         description: Record not found 
+  /published-programme/code/{code}:
+    get:
+      parameters:
+        - name: code
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ipProgrammeCode:
+                    type: string
+                  sourceOfData:
+                    type: string
+                  pubProgSourceCode: 
+                    type: string
+                  title :
+                    type: string
+                  departmentCode :
+                    type: string
+        '401':
+         description: Unauthorized
+        '403':
+         description: Forbidden
+        '404':
+         description: Record not found 
       x-auth-type: Application & Application User
       x-throttling-tier: Unlimited
       x-throttling-limit:
