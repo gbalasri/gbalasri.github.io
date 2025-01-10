@@ -23,13 +23,15 @@ security:
 paths:
   /student/uun/{uun}:
     get:
-      parameters:
-        - name: uun
-          in: path
-          required: true
-          schema:
-            type: string
-      responses:
+     summary: Find a student by uun
+     description: To get the student details for the given uun
+     parameters:
+      - name: uun
+        in: path
+        required: true
+        schema:
+          type: string
+     responses:
         '200':
           description: ok
           content:
@@ -52,6 +54,8 @@ paths:
          description: Record not found 
   /subject/code/{code}:
     get:
+      summary: Find a subject by code
+      description: To get the subject details for the given subject code
       parameters:
         - name: code
           in: path
@@ -112,6 +116,8 @@ paths:
          description: Record not found 
   /published-programme/code/{code}:
     get:
+      summary: Find a IPP by code
+      description: To get the published programme details for the given IPP code
       parameters:
         - name: code
           in: path
@@ -196,6 +202,8 @@ paths:
          description: Record not found 
   /published-prog-inst/code/{code}/seqn/{seqn}:
     get:
+      summary: Find a IPO by code
+      description: To get the published programme instance details for the given IPO code
       parameters:
         - name: code
           in: path
@@ -233,6 +241,8 @@ paths:
          description: Record not found 
   /drps-files/code/{code}/type/{type}:
      get:
+      summary: Find a drps-file-catalogue by code or type
+      description: To get the drps file catalogue details for the given code
       parameters:
         - name: code
           in: path
