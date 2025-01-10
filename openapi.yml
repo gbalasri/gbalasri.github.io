@@ -136,6 +136,132 @@ paths:
                     type: string
                   departmentCode :
                     type: string
+                  keywords:
+                    type: string
+                  subjectAreas:
+                    type: string
+                  programmeOfStudyCode : 
+                    type: string
+                  routeCode :
+                    type: string
+                  process :
+                    type: string
+                  publish:
+                    type: string
+                  status:
+                    type: string
+                  standardLetterGroupCode: 
+                    type: string
+                  standardResponseLetter :
+                    type: string
+                  personnelCode :
+                    type: string
+                  coursePublishingSchedule:
+                    type: string
+                  noOfReferences:
+                    type: string
+                  publishOnlyNextAcademicYear : 
+                    type: string
+                  publishedStartDates :
+                    type: string
+                  sacsNotes :
+                    type: string
+                  facultyCode: 
+                    type: string
+                  inUse :
+                    type: string
+                  feeAttached :
+                    type: string
+                  createdDate:
+                    type: string
+                    format: date
+                  createdTime:
+                    type: string
+                    format: date-time
+                  createdByCode : 
+                    type: string
+                  updatedDate :
+                    type: string
+                    format: date
+                  updatedTime :
+                    type: string
+                    format: date-time
+                  updatedByCode :
+                    type: string
+        '401':
+         description: Unauthorized
+        '403':
+         description: Forbidden
+        '404':
+         description: Record not found 
+  /published-prog-inst/code/{code}/seqn/{seqn}:
+    get:
+      parameters:
+        - name: code
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: seqn
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ipProgrammeCode:
+                    type: string
+                  sequenceNumber:
+                    type: string
+                  applyURL: 
+                    type: string
+                  sourceOfData :
+                    type: string
+                  pubProgSourceCode :
+                    type: string
+        '401':
+         description: Unauthorized
+        '403':
+         description: Forbidden
+        '404':
+         description: Record not found 
+  /drps-files/code/{code}/type/{type}:
+     get:
+      parameters:
+        - name: code
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: type
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  sessionYear:
+                    type: string
+                  type:
+                    type: string
+                  code: 
+                    type: string
+                  filePath:
+                    type: string
+                  fileName:
+                    type: string
         '401':
          description: Unauthorized
         '403':
