@@ -21,12 +21,12 @@ components:
 security:
   - AuthorizationHeader: []
 paths:
-  /student/uun/{uun}:
+  /student/stu-code/{stu-code}:
       get:
        summary: Find a student by uun
        description: To get the student details for the given uun
        parameters:
-        - name: uun
+        - name: stu-code
           in: path
           required: true
           schema:
