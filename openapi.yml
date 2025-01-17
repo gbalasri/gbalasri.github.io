@@ -23,8 +23,8 @@ security:
 paths:
   /student/stu-code/{stu-code}:
       get:
-       summary: Find a student by uun
-       description: To get the student details for the given uun
+       summary: Find a student by stu-code
+       description: To get the student details for the given stu-code
        parameters:
         - name: stu-code
           in: path
@@ -45,75 +45,142 @@ paths:
                       type: string
                     admissionsAgencyIdentifier: 
                       type: string
-  
+                    externalReference:
+                      type: string
+                    surname:
+                      type: string
+                    previousSurname: 
+                      type: string
+                    lettersAfterSurname:
+                      type: string
+                    forename1:
+                      type: string
+                    forename2: 
+                      type: string
+                    forename3:
+                      type: string
+                    forenameUsed:
+                      type: string
+                    Initials: 
+                      type: string
+                    officialName:
+                      type: string
+                    titleCode: 
+                      type: string
+                    titleName:
+                      type: string
+                    preferredPronoun:
+                      type: string
+                    dateOfBirth: 
+                      type: string
+                    dateOfDeath:
+                      type: string
+                      format: date
+                    nationalInsuranceNumber:
+                      type: string
+                    highestQualificationCode: 
+                      type: string
+                    highestQualificationName:
+                      type: string
+                    applicantStatusCode: 
+                      type: string
+                    studentStatusCode:
+                      type: string
+                    exStudentStatusCode:
+                      type: string
+                    localEducationAuthorityCode: 
+                      type: string
+                    lastAttendedSchoolCode:
+                      type: string
+                    institutionCode:
+                      type: string
+                    updatedDate: 
+                      type: string
+                      format: date
+                    ucasid:
+                      type: string
+                    feeStatusCode: 
+                      type: string
+                    ucasHomeOrOverseasFlag:
+                      type: string
+                    termTimeAccomodation:
+                      type: string
+                    yearLastAttendedSchoolCode: 
+                      type: string
+                    yearLastAttendedInstitute:
+                      type: string
+                    examNumber: 
+                      type: string
+                    permissionToDiscussFees:
+                      type: string
+                    acornCategory: 
+                      type: string
+                    wpOverarchingFlag:
+                      type: string
+                    ukvi:
+                      type: string
           '401':
            description: Unauthorized
           '403':
            description: Forbidden
           '404':
            description: Record not found 
-  /subject/code/{code}:
-    get:
-      summary: Find a subject by code
-      description: To get the subject details for the given subject code
-      parameters:
+  /titles:
+      get:
+       summary: Find all titles
+       description: To get all the titles
+       responses:
+          '200':
+            description: ok
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      titleCode:
+                        type: string
+                      titleName:
+                        type: string
+                      inUse: 
+                        type: boolean
+          '401':
+           description: Unauthorized
+          '403':
+           description: Forbidden
+          '404':
+           description: Record not found 
+  /titles/code/{code}:
+      get:
+       summary: Find a title name by title code
+       description: To get the title name for the given title code
+       parameters:
         - name: code
           in: path
           required: true
           schema:
             type: string
-      responses:
-        '200':
-          description: ok
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  subjectCode:
-                    type: string
-                  subjectName:
-                    type: string
-                  inUse: 
-                    type: boolean
-                  programmeAreaCode:
-                    type: string
-                  programmeAreaName:
-                    type: string
-                  subjectGroupCode:
-                    type: string
-                  subjectGroupName:
-                    type: string
-                  costCentreCode:
-                    type: string
-                  costCentreName:
-                    type: string
-                  externalSubjectCode:
-                    type: string
-                  externalSubjectName:
-                   type: string
-                  roomSpecific:
-                   type: string
-                  atasSensitiveResearch:
-                   type: boolean
-                  atasSensitiveTaught:
-                   type: boolean
-                  level6Unit:
-                   type: string
-                  jacsCodeReview:
-                   type: string
-                  costCentreReview:
-                   type: string
-                  sfcFundingGroupOnSub:
-                   type: string
-                  type:
-                   type: string
-        '401':
-         description: Unauthorized
-        '403':
-         description: Forbidden
-        '404':
-         description: Record not found 
+       responses:
+          '200':
+            description: ok
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    titleCode:
+                      type: string
+                    titleName:
+                      type: string
+                    inUse: 
+                      type: boolean
+          '401':
+           description: Unauthorized
+          '403':
+           description: Forbidden
+          '404':
+           description: Record not found 
   /published-programme/code/{code}:
     get:
       summary: Find a IPP by code
@@ -469,6 +536,906 @@ paths:
          description: Forbidden
         '404':
          description: Record not found 
+  /admission-course/code/{code}:
+     get:
+      summary: Find a admission course data by code
+      description: To get the admission course details for the given code
+      parameters:
+        - name: code
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  masCourseCode:
+                    type: string
+                  courseName:
+                    type: string
+                  courseGroupCode: 
+                    type: string
+                  courseGroupName:
+                    type: string
+                  scheme:
+                    type: string
+                  entryBlock:
+                    type: string
+                  occurrence:
+                    type: string
+                  modeOfAttendanceCode:
+                    type: string
+                  modeOfAttendanceName:
+                    type: string
+                  admissionsEntrySystemCode:
+                    type: string
+                  admissionsEntrySystemName:
+                    type: string
+                  departmentCode: 
+                    type: string
+                  departmentName:
+                    type: string
+                  courseCode:
+                    type: string
+                  routeCode:
+                    type: string
+                  courseTitle:
+                    type: string
+                  validForOtherAdmissions:
+                    type: boolean
+                  prospectusCode1:
+                    type: string
+                  prospectusCode2:
+                    type: string
+                  prospectusCode3:
+                    type: string
+                  taughtOrResearch:
+                    type: string
+                  lastIntakeSession:
+                    type: string
+                  ucasCourse:
+                    type: string
+                  ucasProgId: 
+                    type: string
+                  tutor1:
+                    type: string
+                  tutor2:
+                    type: string
+                  contact:
+                    type: string
+                  printInReport:
+                    type: boolean
+                  facultyCode:
+                    type: string
+                  facultyName:
+                    type: string
+                  miniPortfolio:
+                    type: string
+                  programmeFlag:
+                    type: string
+                  feeDepositAmount:
+                    type: string
+                  disclosureCheckRequired:
+                    type: boolean
+                  applicationTypeCode:
+                    type: string
+                  applicationTypeName:
+                    type: string
+                  highCostGradEntry:
+                    type: string
+                  admitOnAtr: 
+                    type: boolean
+                  accessBursary:
+                    type: boolean
+                  firstIntakeSession:
+                    type: string
+                  ugProspectusCode:
+                    type: string
+                  vsProspectus:
+                    type: boolean
+                  variableStartDate:
+                    type: boolean
+                  notes:
+                    type: string
+                  inUse:
+                    type: boolean
+               
+        '401':
+         description: Unauthorized
+        '403':
+         description: Forbidden
+        '404':
+         description: Record not found
+  /course/code/{code}:
+     get:
+      summary: Find a course data by code
+      description: To get the course details for the given code
+      parameters:
+        - name: code
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  courseCode:
+                    type: string
+                  courseDurationLength:
+                    type: string
+                  courseDurationUnitCode: 
+                    type: string
+                  courseDurationUnitName:
+                    type: string
+                  researchCourse:
+                    type: boolean
+                  distanceLearning:
+                    type: boolean
+                  awardCode:
+                    type: string
+                  awardName:
+                    type: string
+                  externalAwardName:
+                    type: string
+                  academicGroupingCode:
+                    type: string
+                  awardSortOrder:
+                    type: string
+                  routeCode: 
+                    type: string
+                  programmeGroup:
+                    type: string
+                  externalSubjectCode:
+                    type: string
+                  atasRequiredResearch:
+                    type: boolean
+                  atasRequiredTaught:
+                    type: boolean
+                  programmeCode:
+                    type: string
+                  programmeName:
+                    type: string
+                  mcrCode:
+                    type: string
+                  subjectBalance:
+                    type: string
+                  feeProfile:
+                    type: string
+                  routeType:
+                    type: string
+                  routeName:
+                    type: string
+                  subjectArea: 
+                    type: string
+                  collaborative:
+                    type: string
+                  yearsApcCharged:
+                    type: string
+                  additionalCost:
+                    type: string
+                  costRecoveryProgramme:
+                    type: string
+                  engagementScheduleCode:
+                    type: string
+                  decGradCode:
+                    type: string
+                  ordinaryExitRoute:
+                    type: boolean
+                  julyGradCode:
+                    type: string
+                  name:
+                    type: string
+                  fullTitle:
+                    type: string
+                  courseGroup:
+                    type: string
+                  departmentCode:
+                    type: string
+                  scheme:
+                    type: string
+                  modeOfAttendanceCode: 
+                    type: string
+                  modeOfAttendanceName:
+                    type: string
+                  returnFormat:
+                    type: string
+                  teacherTrainingCode:
+                    type: string
+                  teacherTrainingName:
+                    type: string
+                  majorFundSourceCode:
+                    type: string
+                  majorFundSourceName:
+                    type: string
+                  faculty:
+                    type: string
+                  inUse:
+                    type: boolean
+                  note:
+                    type: string
+                  writeUpPeriod:
+                    type: string
+                  overseasSpinePoint:
+                    type: string
+                  homeSpinePoint:
+                    type: string
+               
+        '401':
+         description: Unauthorized
+        '403':
+         description: Forbidden
+        '404':
+         description: Record not found
+  /awards:
+      get:
+       summary: Find all awards
+       description: To get all the awards
+       responses:
+          '200':
+            description: ok
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      awardCode:
+                        type: string
+                      awardName:
+                        type: string
+                      inUse: 
+                        type: boolean
+                      validatingBodyCode:
+                        type: string
+                      validatingBodyName:
+                        type: string
+                      extQualAimCode:
+                        type: string
+                      extQualAimName:
+                        type: string
+                      pgOrUgAward:
+                        type: string
+                      createdDate:
+                        type: string
+                      toDate:
+                        type: string
+                      hoIndicator:
+                        type: string
+                      academicGroupingCode:
+                        type: string
+                      eligibleGeneralCouncil:
+                        type: boolean
+                      eligibleAttendGraduationCeremony:
+                        type: boolean
+                      procViaGradCeremony:
+                        type: boolean
+                      displayProgNameInGradProg:
+                        type: boolean
+                      academicOutcome:
+                        type: string
+                      edocRegFormFrom:
+                        type: string
+                      awardSortOrder:
+                        type: string
+                      scqfProgLevel:
+                        type: string
+                      degreeCertificateTitle:
+                        type: string
+                      awardDescription:
+                        type: string
+          '401':
+           description: Unauthorized
+          '403':
+           description: Forbidden
+          '404':
+           description: Record not found 
+  /awards/code/{code}:
+      get:
+       summary: Find a award detail by award code
+       description: To get the award detail for the given award code
+       parameters:
+        - name: code
+          in: path
+          required: true
+          schema:
+            type: string
+       responses:
+          '200':
+            description: ok
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    awardCode:
+                      type: string
+                    awardName:
+                      type: string
+                    inUse: 
+                      type: boolean
+                    validatingBodyCode:
+                      type: string
+                    validatingBodyName:
+                      type: string
+                    extQualAimCode:
+                      type: string
+                    extQualAimName:
+                      type: string
+                    pgOrUgAward:
+                      type: string
+                    createdDate:
+                      type: string
+                    toDate:
+                      type: string
+                    hoIndicator:
+                      type: string
+                    academicGroupingCode:
+                      type: string
+                    eligibleGeneralCouncil:
+                      type: boolean
+                    eligibleAttendGraduationCeremony:
+                      type: boolean
+                    procViaGradCeremony:
+                      type: boolean
+                    displayProgNameInGradProg:
+                      type: boolean
+                    academicOutcome:
+                      type: string
+                    edocRegFormFrom:
+                      type: string
+                    awardSortOrder:
+                      type: string
+                    scqfProgLevel:
+                      type: string
+                    degreeCertificateTitle:
+                      type: string
+                    awardDescription:
+                      type: string
+          '401':
+           description: Unauthorized
+          '403':
+           description: Forbidden
+          '404':
+           description: Record not found 
+  /subject/code/{code}:
+    get:
+      summary: Find a subject by code
+      description: To get the subject details for the given subject code
+      parameters:
+        - name: code
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  subjectCode:
+                    type: string
+                  subjectName:
+                    type: string
+                  inUse: 
+                    type: boolean
+                  programmeAreaCode:
+                    type: string
+                  programmeAreaName:
+                    type: string
+                  subjectGroupCode:
+                    type: string
+                  subjectGroupName:
+                    type: string
+                  costCentreCode:
+                    type: string
+                  costCentreName:
+                    type: string
+                  externalSubjectCode:
+                    type: string
+                  externalSubjectName:
+                   type: string
+                  roomSpecific:
+                   type: string
+                  atasSensitiveResearch:
+                   type: boolean
+                  atasSensitiveTaught:
+                   type: boolean
+                  level6Unit:
+                   type: string
+                  jacsCodeReview:
+                   type: string
+                  costCentreReview:
+                   type: string
+                  sfcFundingGroupOnSub:
+                   type: string
+                  type:
+                   type: string
+        '401':
+         description: Unauthorized
+        '403':
+         description: Forbidden
+        '404':
+         description: Record not found 
+  /external-subject/code/{code}:
+      get:
+       summary: Find an external-subject details by external-subject code
+       description: | 
+        To get the external-subject details for the given external-subject code
+       parameters:
+        - name: code
+          in: path
+          required: true
+          schema:
+            type: string
+       responses:
+          '200':
+            description: ok
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    externalSubjectCode:
+                      type: string
+                    shortName:
+                      type: string
+                    fullName: 
+                      type: string
+                    inUse:
+                      type: boolean
+                    filler:
+                      type: string
+                    hesaSubjectIdentifier:
+                      type: string
+                    subjectIdentifier1:
+                      type: string
+                    subjectIdentifier2:
+                      type: string
+                    nssLevel1:
+                      type: string
+                    nssLevel2:
+                      type: string
+                    nssLevel3:
+                      type: string
+                    subjectDescription:
+                      type: string
+                    heClassificationSubject:
+                      type: string
+          '401':
+           description: Unauthorized
+          '403':
+           description: Forbidden
+          '404':
+           description: Record not found 
+  /units-of-measure:
+      get:
+       summary: Find all the units of measure
+       description: To get all the units of measure
+       responses:
+          '200':
+            description: ok
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      unitsOfMeasurementCode:
+                        type: string
+                      shortName:
+                        type: string
+                      fullName: 
+                        type: string
+                      unitsOfMeasurementHeid:
+                        type: string
+          '401':
+           description: Unauthorized
+          '403':
+           description: Forbidden
+          '404':
+           description: Record not found 
+  /units-of-measure/code/{code}:
+      get:
+       summary: Find a units of measure detail by code
+       description: To get the units of measure details for the given code
+       parameters:
+        - name: code
+          in: path
+          required: true
+          schema:
+            type: string
+       responses:
+          '200':
+            description: ok
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                      unitsOfMeasurementCode:
+                        type: string
+                      shortName:
+                        type: string
+                      fullName: 
+                        type: string
+                      unitsOfMeasurementHeid:
+                        type: string
+          '401':
+           description: Unauthorized
+          '403':
+           description: Forbidden
+          '404':
+           description: Record not found 
+  /modes-of-attendance:
+      get:
+       summary: Find all the modes of attendance records
+       description: To get all the modes of attendance records
+       responses:
+          '200':
+            description: ok
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      modeOfAtendanceCode:
+                        type: string
+                      shortName:
+                        type: string
+                      fullName: 
+                        type: string
+                      inUse:
+                        type: boolean
+                      fteValue:
+                        type: string
+                      hesaModeOfAttendance:
+                        type: string
+                      fefcModeOfAttendance: 
+                        type: string
+                      fcModeOfAttendance:
+                        type: string
+                      includeInFds:
+                        type: boolean
+                      ucasModeOfAttendance:
+                        type: string
+                      fesrModeOfAttendance: 
+                        type: string
+                      defaultFundingWeight:
+                        type: string
+                      feExternalID:
+                        type: string
+                      nursingBoardMoaCode: 
+                        type: string
+                      edexcelMoaRef:
+                        type: string
+          '401':
+           description: Unauthorized
+          '403':
+           description: Forbidden
+          '404':
+           description: Record not found 
+  /modes-of-attendance/code/{code}:
+      get:
+       summary: Find a modes of attendance details by code
+       description: To get the modes of attendance details for the given code
+       parameters:
+        - name: code
+          in: path
+          required: true
+          schema:
+            type: string
+       responses:
+          '200':
+            description: ok
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                      modeOfAtendanceCode:
+                        type: string
+                      shortName:
+                        type: string
+                      fullName: 
+                        type: string
+                      inUse:
+                        type: boolean
+                      fteValue:
+                        type: string
+                      hesaModeOfAttendance:
+                        type: string
+                      fefcModeOfAttendance: 
+                        type: string
+                      fcModeOfAttendance:
+                        type: string
+                      includeInFds:
+                        type: boolean
+                      ucasModeOfAttendance:
+                        type: string
+                      fesrModeOfAttendance: 
+                        type: string
+                      defaultFundingWeight:
+                        type: string
+                      feExternalID:
+                        type: string
+                      nursingBoardMoaCode: 
+                        type: string
+                      edexcelMoaRef:
+                        type: string
+          '401':
+           description: Unauthorized
+          '403':
+           description: Forbidden
+          '404':
+           description: Record not found 
+  /academic-year:
+      get:
+       summary: Find the academic year
+       description: To get the current academic year
+       responses:
+          '200':
+            description: ok
+            content:
+              application/json:
+                schema:
+                    type: object
+                    properties:
+                      academicYear:
+                        type: string
+          '401':
+           description: Unauthorized
+          '403':
+           description: Forbidden
+          '404':
+           description: Record not found 
+  /semester1-startdate:
+      get:
+       summary: Find all the semester1 start dates
+       description: To get all the semester1 start dates
+       responses:
+          '200':
+            description: ok
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      academicYear:
+                        type: string
+                      startDate:
+                        type: string
+                        format: date
+          '401':
+           description: Unauthorized
+          '403':
+           description: Forbidden
+          '404':
+           description: Record not found 
+  /semester1-startdate/acad-year/{year}:
+      get:
+       summary: Find a the semester1 start dates by giving academic year
+       description: To get the semester1 start dates for the given academic year
+       parameters:
+        - name: year
+          in: path
+          required: true
+          schema:
+            type: string
+          example: 2023-4
+       responses:
+          '200':
+            description: ok
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                      academicYear:
+                        type: string
+                      startDate:
+                        type: string
+                        format: date
+          '401':
+           description: Unauthorized
+          '403':
+           description: Forbidden
+          '404':
+           description: Record not found 
+  /semester2-startdate:
+      get:
+       summary: Find all the semester2 start dates
+       description: To get all the semester2 start dates
+       responses:
+          '200':
+            description: ok
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      academicYear:
+                        type: string
+                      startDate:
+                        type: string
+                        format: date
+          '401':
+           description: Unauthorized
+          '403':
+           description: Forbidden
+          '404':
+           description: Record not found 
+  /semester2-startdate/acad-year/{year}:
+      get:
+       summary: Find a the semester2 start dates by giving academic year
+       description: To get the semester2 start dates for the given academic year
+       parameters:
+        - name: year
+          in: path
+          required: true
+          schema:
+            type: string
+          example: 2023-4
+       responses:
+          '200':
+            description: ok
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                      academicYear:
+                        type: string
+                      startDate:
+                        type: string
+                        format: date
+          '401':
+           description: Unauthorized
+          '403':
+           description: Forbidden
+          '404':
+           description: Record not found 
+  /departments:
+      get:
+       summary: Find all the departments
+       description: To get all the departments
+       responses:
+          '200':
+            description: ok
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      departmentCode:
+                        type: string
+                      parentDepartmentCode:
+                        type: string
+                      shortName:
+                        type: string
+                      fullName:
+                        type: string
+                      institutionCode:
+                        type: string
+                      institutionName:
+                        type: string
+                      inUse:
+                        type: boolean
+                      unitLevel:
+                        type: string
+                      facultyCode:
+                        type: string
+                      collegeFac:
+                        type: string
+                      canOwnProgramOrCourse:
+                        type: boolean
+                      parentLevel4Unit:
+                        type: string
+                      parentLevel5Unit:
+                        type: string
+                      level6SchoolOrSchoolLike:
+                        type: boolean
+                      schoolSchedule:
+                        type: string
+                      julyCeremonyCode:
+                        type: string
+                      decemberCeremonyCode:
+                        type: string
+                      tlReportSortOrder:
+                        type: string
+                      costCenter:
+                        type: string
+
+          '401':
+           description: Unauthorized
+          '403':
+           description: Forbidden
+          '404':
+           description: Record not found 
+  /departments/code/{code}:
+      get:
+       summary: Find a department by giving code
+       description: To get the department details for the given code
+       parameters:
+        - name: code
+          in: path
+          required: true
+          schema:
+            type: string
+       responses:
+          '200':
+            description: ok
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                      departmentCode:
+                        type: string
+                      parentDepartmentCode:
+                        type: string
+                      shortName:
+                        type: string
+                      fullName:
+                        type: string
+                      institutionCode:
+                        type: string
+                      institutionName:
+                        type: string
+                      inUse:
+                        type: boolean
+                      unitLevel:
+                        type: string
+                      facultyCode:
+                        type: string
+                      collegeFac:
+                        type: string
+                      canOwnProgramOrCourse:
+                        type: boolean
+                      parentLevel4Unit:
+                        type: string
+                      parentLevel5Unit:
+                        type: string
+                      level6SchoolOrSchoolLike:
+                        type: boolean
+                      schoolSchedule:
+                        type: string
+                      julyCeremonyCode:
+                        type: string
+                      decemberCeremonyCode:
+                        type: string
+                      tlReportSortOrder:
+                        type: string
+                      costCenter:
+                        type: string
+          '401':
+           description: Unauthorized
+          '403':
+           description: Forbidden
+          '404':
+           description: Record not found 
       x-auth-type: Application & Application User
       x-throttling-tier: Unlimited
       x-throttling-limit:
