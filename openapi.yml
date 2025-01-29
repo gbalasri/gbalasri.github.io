@@ -135,16 +135,19 @@ paths:
             content:
               application/json:
                 schema:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      titleCode:
-                        type: string
-                      titleName:
-                        type: string
-                      inUse: 
-                        type: boolean
+                  type: object
+                  properties:
+                    titles:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          titleCode:
+                            type: string
+                          titleName:
+                            type: string
+                          inUse: 
+                            type: boolean
           '401':
            description: Unauthorized
           '403':
@@ -285,66 +288,69 @@ paths:
               schema:
                 type: object
                 properties:
-                  ipProgrammeCode:
-                    type: string
-                  sequenceNumber:
-                    type: string
-                  applyURL: 
-                    type: string
-                  sourceOfData :
-                    type: string
-                  pubProgSourceCode :
-                    type: string
-                  title:
-                    type: string
-                  academicYearCode:
-                    type: string
-                  periodSlotCode: 
-                    type: string
-                  periodSlotName :
-                    type: string
-                  block :
-                    type: string
-                  occurrence:
-                    type: string
-                  startDate: 
-                    type: string
-                    format: date
-                  endDate :
-                    type: string
-                    format: date
-                  modeOfAttendanceCode :
-                    type: string
-                  publish:
-                    type: string
-                  status:
-                    type: string
-                  standardLetterGroupCode: 
-                    type: string
-                  inUse :
-                    type: string
-                  actualStartDate :
-                    type: string
-                  deadlineDate :
-                    type: string
-                  departmentCode :
-                    type: string
-                  createdDate:
-                    type: string
-                    format: date
-                  createdTime: 
-                    type: string
-                    format: time
-                  createdByCode :
-                    type: string
-                  updatedDate :
-                    type: string
-                    format: date
-                  updatedTime:
-                    type: string
-                    format: time
-                  updatedByCode:
-                    type: string
+                  publishedProgramInstances:
+                    type: object
+                    properties:
+                      ipProgrammeCode:
+                        type: string
+                      sequenceNumber:
+                        type: string
+                      applyURL: 
+                        type: string
+                      sourceOfData :
+                        type: string
+                      pubProgSourceCode :
+                        type: string
+                      title:
+                        type: string
+                      academicYearCode:
+                        type: string
+                      periodSlotCode: 
+                        type: string
+                      periodSlotName :
+                        type: string
+                      block :
+                        type: string
+                      occurrence:
+                        type: string
+                      startDate: 
+                        type: string
+                        format: date
+                      endDate :
+                        type: string
+                        format: date
+                      modeOfAttendanceCode :
+                        type: string
+                      publish:
+                        type: string
+                      status:
+                        type: string
+                      standardLetterGroupCode: 
+                        type: string
+                      inUse :
+                        type: string
+                      actualStartDate :
+                        type: string
+                      deadlineDate :
+                        type: string
+                      departmentCode :
+                        type: string
+                      createdDate:
+                        type: string
+                        format: date
+                      createdTime: 
+                        type: string
+                        format: time
+                      createdByCode :
+                        type: string
+                      updatedDate :
+                        type: string
+                        format: date
+                      updatedTime:
+                        type: string
+                        format: time
+                      updatedByCode:
+                        type: string
         '401':
          description: Unauthorized
         '403':
@@ -456,30 +462,33 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  type: object
-                  properties:
-                      sessionYear:
-                        type: string
-                      type:
-                        type: string
-                      code: 
-                        type: string
-                      filePath:
-                        type: string
-                      fileName:
-                        type: string
-                      fileExtension:
-                        type: string
-                      url:
-                        type: string
-                      publishedDate:
-                        type: string
-                        format: date
-                      fileModifiedDate:
-                        type: string
-                        format: date
+                type: object
+                properties:
+                  drpsFileCatalogues:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                          sessionYear:
+                            type: string
+                          type:
+                            type: string
+                          code: 
+                            type: string
+                          filePath:
+                            type: string
+                          fileName:
+                            type: string
+                          fileExtension:
+                            type: string
+                          url:
+                            type: string
+                          publishedDate:
+                            type: string
+                            format: date
+                          fileModifiedDate:
+                            type: string
+                            format: date
         '401':
          description: Unauthorized
         '403':
@@ -507,29 +516,32 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                 properties:
-                      sessionYear:
-                        type: string
-                      type:
-                        type: string
-                      code: 
-                        type: string
-                      filePath:
-                        type: string
-                      fileName:
-                        type: string
-                      fileExtension:
-                        type: string
-                      url:
-                        type: string
-                      publishedDate:
-                        type: string
-                        format: date
-                      fileModifiedDate:
-                        type: string
-                        format: date
+                type: object
+                properties:
+                  drpsFileCatalogues:
+                    type: array
+                    items:
+                     properties:
+                          sessionYear:
+                            type: string
+                          type:
+                            type: string
+                          code: 
+                            type: string
+                          filePath:
+                            type: string
+                          fileName:
+                            type: string
+                          fileExtension:
+                            type: string
+                          url:
+                            type: string
+                          publishedDate:
+                            type: string
+                            format: date
+                          fileModifiedDate:
+                            type: string
+                            format: date
         '401':
          description: Unauthorized
         '403':
@@ -786,54 +798,57 @@ paths:
             content:
               application/json:
                 schema:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      awardCode:
-                        type: string
-                      awardName:
-                        type: string
-                      inUse: 
-                        type: boolean
-                      validatingBodyCode:
-                        type: string
-                      validatingBodyName:
-                        type: string
-                      extQualAimCode:
-                        type: string
-                      extQualAimName:
-                        type: string
-                      pgOrUgAward:
-                        type: string
-                      createdDate:
-                        type: string
-                      toDate:
-                        type: string
-                      hoIndicator:
-                        type: string
-                      academicGroupingCode:
-                        type: string
-                      eligibleGeneralCouncil:
-                        type: boolean
-                      eligibleAttendGraduationCeremony:
-                        type: boolean
-                      procViaGradCeremony:
-                        type: boolean
-                      displayProgNameInGradProg:
-                        type: boolean
-                      academicOutcome:
-                        type: string
-                      edocRegFormFrom:
-                        type: string
-                      awardSortOrder:
-                        type: string
-                      scqfProgLevel:
-                        type: string
-                      degreeCertificateTitle:
-                        type: string
-                      awardDescription:
-                        type: string
+                  type: object
+                  properties:
+                     awards:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            awardCode:
+                              type: string
+                            awardName:
+                              type: string
+                            inUse: 
+                              type: boolean
+                            validatingBodyCode:
+                              type: string
+                            validatingBodyName:
+                              type: string
+                            extQualAimCode:
+                              type: string
+                            extQualAimName:
+                              type: string
+                            pgOrUgAward:
+                              type: string
+                            createdDate:
+                              type: string
+                            toDate:
+                              type: string
+                            hoIndicator:
+                              type: string
+                            academicGroupingCode:
+                              type: string
+                            eligibleGeneralCouncil:
+                              type: boolean
+                            eligibleAttendGraduationCeremony:
+                              type: boolean
+                            procViaGradCeremony:
+                              type: boolean
+                            displayProgNameInGradProg:
+                              type: boolean
+                            academicOutcome:
+                              type: string
+                            edocRegFormFrom:
+                              type: string
+                            awardSortOrder:
+                              type: string
+                            scqfProgLevel:
+                              type: string
+                            degreeCertificateTitle:
+                              type: string
+                            awardDescription:
+                              type: string
           '401':
            description: Unauthorized
           '403':
@@ -1031,18 +1046,21 @@ paths:
             content:
               application/json:
                 schema:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      unitsOfMeasurementCode:
-                        type: string
-                      shortName:
-                        type: string
-                      fullName: 
-                        type: string
-                      unitsOfMeasurementHeid:
-                        type: string
+                  type: object
+                  properties:
+                     unitsOfMeasurement:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          unitsOfMeasurementCode:
+                            type: string
+                          shortName:
+                            type: string
+                          fullName: 
+                            type: string
+                          unitsOfMeasurementHeid:
+                            type: string
           '401':
            description: Unauthorized
           '403':
@@ -1090,41 +1108,44 @@ paths:
             description: ok
             content:
               application/json:
-                schema:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      modeOfAtendanceCode:
-                        type: string
-                      shortName:
-                        type: string
-                      fullName: 
-                        type: string
-                      inUse:
-                        type: boolean
-                      fteValue:
-                        type: string
-                      hesaModeOfAttendance:
-                        type: string
-                      fefcModeOfAttendance: 
-                        type: string
-                      fcModeOfAttendance:
-                        type: string
-                      includeInFds:
-                        type: boolean
-                      ucasModeOfAttendance:
-                        type: string
-                      fesrModeOfAttendance: 
-                        type: string
-                      defaultFundingWeight:
-                        type: string
-                      feExternalID:
-                        type: string
-                      nursingBoardMoaCode: 
-                        type: string
-                      edexcelMoaRef:
-                        type: string
+               schema:
+                  type: object
+                  properties:
+                     modesOfAttendance:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          modeOfAtendanceCode:
+                            type: string
+                          shortName:
+                            type: string
+                          fullName: 
+                            type: string
+                          inUse:
+                            type: boolean
+                          fteValue:
+                            type: string
+                          hesaModeOfAttendance:
+                            type: string
+                          fefcModeOfAttendance: 
+                            type: string
+                          fcModeOfAttendance:
+                            type: string
+                          includeInFds:
+                            type: boolean
+                          ucasModeOfAttendance:
+                            type: string
+                          fesrModeOfAttendance: 
+                            type: string
+                          defaultFundingWeight:
+                            type: string
+                          feExternalID:
+                            type: string
+                          nursingBoardMoaCode: 
+                            type: string
+                          edexcelMoaRef:
+                            type: string
           '401':
            description: Unauthorized
           '403':
@@ -1215,15 +1236,18 @@ paths:
             content:
               application/json:
                 schema:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      academicYear:
-                        type: string
-                      startDate:
-                        type: string
-                        format: date
+                  type: object
+                  properties:
+                     academicYears:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          academicYear:
+                            type: string
+                          startDate:
+                            type: string
+                            format: date
           '401':
            description: Unauthorized
           '403':
@@ -1270,15 +1294,18 @@ paths:
             content:
               application/json:
                 schema:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      academicYear:
-                        type: string
-                      startDate:
-                        type: string
-                        format: date
+                  type: object
+                  properties:
+                     academicYears:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          academicYear:
+                            type: string
+                          startDate:
+                            type: string
+                            format: date
           '401':
            description: Unauthorized
           '403':
@@ -1325,48 +1352,51 @@ paths:
             content:
               application/json:
                 schema:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      departmentCode:
-                        type: string
-                      parentDepartmentCode:
-                        type: string
-                      shortName:
-                        type: string
-                      fullName:
-                        type: string
-                      institutionCode:
-                        type: string
-                      institutionName:
-                        type: string
-                      inUse:
-                        type: boolean
-                      unitLevel:
-                        type: string
-                      facultyCode:
-                        type: string
-                      collegeFac:
-                        type: string
-                      canOwnProgramOrCourse:
-                        type: boolean
-                      parentLevel4Unit:
-                        type: string
-                      parentLevel5Unit:
-                        type: string
-                      level6SchoolOrSchoolLike:
-                        type: boolean
-                      schoolSchedule:
-                        type: string
-                      julyCeremonyCode:
-                        type: string
-                      decemberCeremonyCode:
-                        type: string
-                      tlReportSortOrder:
-                        type: string
-                      costCenter:
-                        type: string
+                  type: object
+                  properties:
+                     departments:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          departmentCode:
+                            type: string
+                          parentDepartmentCode:
+                            type: string
+                          shortName:
+                            type: string
+                          fullName:
+                            type: string
+                          institutionCode:
+                            type: string
+                          institutionName:
+                            type: string
+                          inUse:
+                            type: boolean
+                          unitLevel:
+                            type: string
+                          facultyCode:
+                            type: string
+                          collegeFac:
+                            type: string
+                          canOwnProgramOrCourse:
+                            type: boolean
+                          parentLevel4Unit:
+                            type: string
+                          parentLevel5Unit:
+                            type: string
+                          level6SchoolOrSchoolLike:
+                            type: boolean
+                          schoolSchedule:
+                            type: string
+                          julyCeremonyCode:
+                            type: string
+                          decemberCeremonyCode:
+                            type: string
+                          tlReportSortOrder:
+                            type: string
+                          costCenter:
+                            type: string
 
           '401':
            description: Unauthorized
