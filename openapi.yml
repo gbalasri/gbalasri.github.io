@@ -190,6 +190,17 @@ paths:
       get:
        summary: Find all titles
        description: To get all the titles
+       parameters:
+        - name: maxhits
+          in: query
+          required: false
+          schema:
+            type: number
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: number
        responses:
           '200':
             description: ok
@@ -349,6 +360,16 @@ paths:
           required: true
           schema:
             type: string
+        - name: maxhits
+          in: query
+          required: false
+          schema:
+            type: number
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: number
       responses:
         '200':
           description: ok
@@ -887,6 +908,17 @@ paths:
       get:
        summary: Find all awards
        description: To get all the awards
+       parameters:
+        - name: maxhits
+          in: query
+          required: false
+          schema:
+            type: number
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: number
        responses:
           '200':
             description: ok
@@ -1143,6 +1175,17 @@ paths:
       get:
        summary: Find all the units of measure
        description: To get all the units of measure
+       parameters:
+        - name: maxhits
+          in: query
+          required: false
+          schema:
+            type: number
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: number
        responses:
           '200':
             description: ok
@@ -1214,6 +1257,17 @@ paths:
       get:
        summary: Find all the modes of attendance records
        description: To get all the modes of attendance records
+       parameters:
+        - name: maxhits
+          in: query
+          required: false
+          schema:
+            type: number
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: number
        responses:
           '200':
             description: ok
@@ -1465,6 +1519,17 @@ paths:
       get:
        summary: Find all the departments
        description: To get all the departments
+       parameters:
+        - name: maxhits
+          in: query
+          required: false
+          schema:
+            type: number
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: number
        responses:
           '200':
             description: ok
