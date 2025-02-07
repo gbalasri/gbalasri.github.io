@@ -1988,12 +1988,12 @@ paths:
          description: Forbidden
         '404':
          description: Record not found 
-  /course-block/course/{course}:
+  /course-block/code/{code}:
     get:
       summary: Find the course block details
       description: To get the course block details
       parameters:
-        - name: course
+        - name: code
           in: path
           required: true
           schema:
