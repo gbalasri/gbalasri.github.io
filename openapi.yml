@@ -1589,7 +1589,6 @@ paths:
                       type: number
                     total:
                       type: number
-
           '401':
            description: Unauthorized
           '403':
@@ -1657,7 +1656,1881 @@ paths:
           '403':
            description: Forbidden
           '404':
+           description: Record not found
+  /active-students:
+      get:
+       summary: Find all the active students
+       description: To get all the active students
+       parameters:
+        - name: maxhits
+          in: query
+          required: false
+          schema:
+            type: number
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: number
+       responses:
+          '200':
+            description: ok
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    students:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          studentCode:
+                            type: string
+                          personIdentifier:
+                            type: string
+                          admissionsAgencyIdentifier: 
+                            type: string
+                          externalReference:
+                            type: string
+                          surname:
+                            type: string
+                          previousSurname: 
+                            type: string
+                          lettersAfterSurname:
+                            type: string
+                          forename1:
+                            type: string
+                          forename2: 
+                            type: string
+                          forename3:
+                            type: string
+                          forenameUsed:
+                            type: string
+                          Initials: 
+                            type: string
+                          officialName:
+                            type: string
+                          titleCode: 
+                            type: string
+                          titleName:
+                            type: string
+                          preferredPronoun:
+                            type: string
+                          dateOfBirth: 
+                            type: string
+                          dateOfDeath:
+                            type: string
+                            format: date
+                          nationalInsuranceNumber:
+                            type: string
+                          highestQualificationCode: 
+                            type: string
+                          highestQualificationName:
+                            type: string
+                          applicantStatusCode: 
+                            type: string
+                          studentStatusCode:
+                            type: string
+                          exStudentStatusCode:
+                            type: string
+                          localEducationAuthorityCode: 
+                            type: string
+                          lastAttendedSchoolCode:
+                            type: string
+                          institutionCode:
+                            type: string
+                          updatedDate: 
+                            type: string
+                            format: date
+                          ucasid:
+                            type: string
+                          feeStatusCode: 
+                            type: string
+                          ucasHomeOrOverseasFlag:
+                            type: string
+                          termTimeAccomodation:
+                            type: string
+                          yearLastAttendedSchoolCode: 
+                            type: string
+                          yearLastAttendedInstitute:
+                            type: string
+                          examNumber: 
+                            type: string
+                          permissionToDiscussFees:
+                            type: string
+                          acornCategory: 
+                            type: string
+                          wpOverarchingFlag:
+                            type: string
+                          ukvi:
+                            type: string
+                          currentStudentCourseJoinCodes:
+                            type: array
+                            items:
+                              type: object
+                          contactAddress:
+                            type: object
+                            properties:
+                              addressLine1:
+                                type: string
+                              addressLine2:
+                                type: string
+                              addressLine3:
+                                type: string
+                              addressLine4:
+                                type: string
+                              addressLine5:
+                                type: string
+                              postCode:
+                                type: string
+                              countryCode:
+                                type: string
+                              startDate:
+                                type: string
+                              endDate:
+                                type: string
+                          homeAddress:
+                            type: object
+                            properties:
+                              addressLine1:
+                                type: string
+                              addressLine2:
+                                type: string
+                              addressLine3:
+                                type: string
+                              addressLine4:
+                                type: string
+                              addressLine5:
+                                type: string
+                              postCode:
+                                type: string
+                              countryCode:
+                                type: string
+                              startDate:
+                                type: string
+                              endDate:
+                                type: string  
+                          contactDetails:
+                            type: object
+                            properties:
+                              institutionEmail:
+                                type: string
+                              email:
+                                type: string
+                              alternateEmail:
+                                type: string
+                              phoneNumber1:
+                                type: string
+                              phoneNumber2:
+                                type: string
+                              phoneNumber3:
+                                type: string
+                    requested:
+                      type: number
+                    count:
+                      type: number
+                    skip:
+                      type: number
+                    total:
+                      type: number
+          '401':
+           description: Unauthorized
+          '403':
+           description: Forbidden
+          '404':
            description: Record not found 
+  /student-nationality/mst-code/{mst-code}:
+      get:
+       summary: Find the nationality of the student by giving mst-code
+       description: To get nationality of the student
+       parameters:
+        - name: mst-code
+          in: path
+          required: true
+          schema:
+            type: string
+       responses:
+          '200':
+            description: ok
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    mstCode:
+                      type: string
+                    nationalityCode:
+                      type: string
+                    nationalityName: 
+                      type: string
+                    secondNationalityCode:
+                      type: string
+                    secondNationalityName:
+                      type: string
+                    nationalIdentityCode: 
+                      type: string
+                    nationalIdentityName:
+                      type: string
+                    secondNationalIdentityCode:
+                      type: string
+                    secondNationalIdentityName: 
+                      type: string
+                    birthCountryCode: 
+                      type: string
+                    birthCountryName:
+                      type: string
+                    refugeeStatusCode:
+                      type: string
+                    refugeeStatusName: 
+                      type: string
+          '401':
+           description: Unauthorized
+          '403':
+           description: Forbidden
+          '404':
+           description: Record not found 
+  /student-disability/stu-code/{stu-code}:
+      get:
+       summary: Find a disability details of the student
+       description: To get the  disability detailsfor the given student code
+       parameters:
+        - name: stu-code
+          in: path
+          required: true
+          schema:
+            type: string
+       responses:
+          '200':
+            description: ok
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    stuCode:
+                      type: string
+                    disabilityCode:
+                      type: string
+                    disabilityName: 
+                      type: string
+          '401':
+           description: Unauthorized
+          '403':
+           description: Forbidden
+          '404':
+           description: Record not found 
+  /admission-cycle:
+      get:
+       summary: Find a admission cycle
+       description: To get the  dmission cycle
+       responses:
+          '200':
+            description: ok
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    year:
+                      type: string
+          '401':
+           description: Unauthorized
+          '403':
+           description: Forbidden
+          '404':
+           description: Record not found 
+  /course-block:
+    get:
+      summary: Find the course block details
+      description: To get the course block details
+      parameters:
+        - name: maxhits
+          in: query
+          required: false
+          schema:
+            type: number
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: number
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+                schema:
+                  type: object
+                  properties:
+                    courseBlocks:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          course:
+                            type: string
+                          block:
+                            type: string
+                          year:
+                            type: string
+                    requested:
+                      type: number
+                    count:
+                      type: number
+                    skip:
+                      type: number
+                    total:
+                      type: number
+        '401':
+         description: Unauthorized
+        '403':
+         description: Forbidden
+        '404':
+         description: Record not found 
+  /course-block/course/{course}:
+    get:
+      summary: Find the course block details
+      description: To get the course block details
+      parameters:
+        - name: course
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: maxhits
+          in: query
+          required: false
+          schema:
+            type: number
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: number
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+                schema:
+                  type: object
+                  properties:
+                    courseBlocks:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          course:
+                            type: string
+                          block:
+                            type: string
+                          year:
+                            type: string
+                    requested:
+                      type: number
+                    count:
+                      type: number
+                    skip:
+                      type: number
+                    total:
+                      type: number
+        '401':
+         description: Unauthorized
+        '403':
+         description: Forbidden
+        '404':
+         description: Record not found 
+  /course-block/block/{block}:
+    get:
+      summary: Find the course block details
+      description: To get the course block details
+      parameters:
+        - name: block
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: maxhits
+          in: query
+          required: false
+          schema:
+            type: number
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: number
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+                schema:
+                  type: object
+                  properties:
+                    courseBlocks:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          course:
+                            type: string
+                          block:
+                            type: string
+                          year:
+                            type: string
+                    requested:
+                      type: number
+                    count:
+                      type: number
+                    skip:
+                      type: number
+                    total:
+                      type: number
+        '401':
+         description: Unauthorized
+        '403':
+         description: Forbidden
+        '404':
+         description: Record not found 
+  /course-block/year/{year}:
+    get:
+      summary: Find the course block details
+      description: To get the course block details
+      parameters:
+        - name: year
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: maxhits
+          in: query
+          required: false
+          schema:
+            type: number
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: number
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+                schema:
+                  type: object
+                  properties:
+                    courseBlocks:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          course:
+                            type: string
+                          block:
+                            type: string
+                          year:
+                            type: string
+                    requested:
+                      type: number
+                    count:
+                      type: number
+                    skip:
+                      type: number
+                    total:
+                      type: number
+        '401':
+         description: Unauthorized
+        '403':
+         description: Forbidden
+        '404':
+         description: Record not found 
+  /module/code/{code}:
+    get:
+      summary: Find a module by code
+      description: To get the module details for the given module code
+      parameters:
+        - name: code
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  moduleCode:
+                    type: string
+                  abbreviation:
+                    type: string
+                  name: 
+                    type: string
+                  homeSubject :
+                    type: string
+                  faculty :
+                    type: string
+                  department:
+                    type: string
+                  scheme:
+                    type: string
+                  level: 
+                    type: string
+                  credits :
+                    type: number
+                  contactHours :
+                    type: number
+                  assesmentPatternCode:
+                    type: string
+                  assesmentPatternName: 
+                    type: string
+                  markingSchemeCode :
+                    type: string
+                  markingSchemeName :
+                    type: string
+                  courseTypeCode:
+                    type: string
+                  courseTYpeName:
+                    type: string
+                  externalCreditLevel: 
+                    type: string
+                  parentCourseCode :
+                    type: string
+                  secondSubject :
+                    type: string
+                  createDate :
+                    type: string
+                  closeDate :
+                    type: string
+                  availability:
+                    type: string
+                  courseSecretary: 
+                    type: string
+                  status:
+                    type: string
+                  convenorBoardExaminers:
+                    type: string
+                  yearsTaken:
+                    type: string
+                  defaultDeliveryPeriod:
+                    type: string
+                  defaultModeOfStudy:
+                    type: string
+                  excludeFromTeachingLoad:
+                    type: string
+                  inUse:
+                    type: boolean
+        '401':
+         description: Unauthorized
+        '403':
+         description: Forbidden
+        '404':
+         description: Record not found 
+  /period-slot/code/{code}:
+    get:
+      summary: Find a period slot by code
+      description: To get the period slot information for the given code
+      parameters:
+        - name: code
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: maxhits
+          in: query
+          required: false
+          schema:
+            type: number
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: number
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: string
+                  shortName:
+                    type: string
+                  periodSlot: 
+                    type: string
+                  periodCode :
+                    type: string
+                  sequenceNumber :
+                    type: string
+                  startWeek:
+                    type: string
+                  endWeek:
+                    type: string
+                  inUse: 
+                    type: boolean
+        '401':
+         description: Unauthorized
+        '403':
+         description: Forbidden
+        '404':
+         description: Record not found 
+  /module-occurrences/code/{code}:
+     get:
+      summary: Find a module occurrence by code 
+      description: To get the module occurrence details for the given code
+      parameters:
+        - name: code
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: maxhits
+          in: query
+          required: false
+          schema:
+            type: number
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: number
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  moduleOccurrences:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                          moduleCode:
+                            type: string
+                          occurrence:
+                            type: string
+                          academicYear: 
+                            type: string
+                          periodCode:
+                            type: string
+                          schemeCode:
+                            type: string
+                          levelCode:
+                            type: string
+                          locationCode:
+                            type: string
+                          locationName:
+                            type: string
+                          targetStudents:
+                            type: string
+                          actualStudents:
+                            type: string
+                          actualSets:
+                            type: string
+                          transferesIn:
+                            type: string
+                          transferesout:
+                            type: string
+                          modulePattern:
+                            type: string
+                          markCode:
+                            type: string
+                          domainCode:
+                            type: string
+                          domainName:
+                            type: string
+                          moduleTutorCode:
+                            type: string
+                          beginWeek:
+                            type: string
+                          endWeek:
+                            type: string
+                          departmentDepartment:
+                            type: string
+                          topicCollection:
+                            type: string
+                          virtualUse:
+                            type: string
+                          mavName:
+                            type: string
+                          occurrenceGroup:
+                            type: string
+                  requested:
+                    type: number
+                  count:
+                    type: number
+                  skip:
+                    type: number
+                  total:
+                    type: number
+        '401':
+         description: Unauthorized
+        '403':
+         description: Forbidden
+        '404':
+         description: Record not found 
+  /module-occurrences/code/{code}/occurrence/{occurrence}:
+     get:
+      summary: Find a module occurrence by code 
+      description: To get the module occurrence details for the given code
+      parameters:
+        - name: code
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: occurrence
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: maxhits
+          in: query
+          required: false
+          schema:
+            type: number
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: number
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  moduleOccurrences:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                          moduleCode:
+                            type: string
+                          occurrence:
+                            type: string
+                          academicYear: 
+                            type: string
+                          periodCode:
+                            type: string
+                          schemeCode:
+                            type: string
+                          levelCode:
+                            type: string
+                          locationCode:
+                            type: string
+                          locationName:
+                            type: string
+                          targetStudents:
+                            type: string
+                          actualStudents:
+                            type: string
+                          actualSets:
+                            type: string
+                          transferesIn:
+                            type: string
+                          transferesout:
+                            type: string
+                          modulePattern:
+                            type: string
+                          markCode:
+                            type: string
+                          domainCode:
+                            type: string
+                          domainName:
+                            type: string
+                          moduleTutorCode:
+                            type: string
+                          beginWeek:
+                            type: string
+                          endWeek:
+                            type: string
+                          departmentDepartment:
+                            type: string
+                          topicCollection:
+                            type: string
+                          virtualUse:
+                            type: string
+                          mavName:
+                            type: string
+                          occurrenceGroup:
+                            type: string
+                  requested:
+                    type: number
+                  count:
+                    type: number
+                  skip:
+                    type: number
+                  total:
+                    type: number
+        '401':
+         description: Unauthorized
+        '403':
+         description: Forbidden
+        '404':
+         description: Record not found 
+  /module-occurrences/code/{code}/academic-year/{academic-year}:
+     get:
+      summary: Find a module occurrence by code 
+      description: To get the module occurrence details for the given code
+      parameters:
+        - name: code
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: academic-year
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: maxhits
+          in: query
+          required: false
+          schema:
+            type: number
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: number
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  moduleOccurrences:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                          moduleCode:
+                            type: string
+                          occurrence:
+                            type: string
+                          academicYear: 
+                            type: string
+                          periodCode:
+                            type: string
+                          schemeCode:
+                            type: string
+                          levelCode:
+                            type: string
+                          locationCode:
+                            type: string
+                          locationName:
+                            type: string
+                          targetStudents:
+                            type: string
+                          actualStudents:
+                            type: string
+                          actualSets:
+                            type: string
+                          transferesIn:
+                            type: string
+                          transferesout:
+                            type: string
+                          modulePattern:
+                            type: string
+                          markCode:
+                            type: string
+                          domainCode:
+                            type: string
+                          domainName:
+                            type: string
+                          moduleTutorCode:
+                            type: string
+                          beginWeek:
+                            type: string
+                          endWeek:
+                            type: string
+                          departmentDepartment:
+                            type: string
+                          topicCollection:
+                            type: string
+                          virtualUse:
+                            type: string
+                          mavName:
+                            type: string
+                          occurrenceGroup:
+                            type: string
+                  requested:
+                    type: number
+                  count:
+                    type: number
+                  skip:
+                    type: number
+                  total:
+                    type: number
+        '401':
+         description: Unauthorized
+        '403':
+         description: Forbidden
+        '404':
+         description: Record not found 
+  /module-occurrences/code/{code}/period/{period}:
+     get:
+      summary: Find a module occurrence by code 
+      description: To get the module occurrence details for the given code
+      parameters:
+        - name: code
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: period
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: maxhits
+          in: query
+          required: false
+          schema:
+            type: number
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: number          
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  moduleOccurrences:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                          moduleCode:
+                            type: string
+                          occurrence:
+                            type: string
+                          academicYear: 
+                            type: string
+                          periodCode:
+                            type: string
+                          schemeCode:
+                            type: string
+                          levelCode:
+                            type: string
+                          locationCode:
+                            type: string
+                          locationName:
+                            type: string
+                          targetStudents:
+                            type: string
+                          actualStudents:
+                            type: string
+                          actualSets:
+                            type: string
+                          transferesIn:
+                            type: string
+                          transferesout:
+                            type: string
+                          modulePattern:
+                            type: string
+                          markCode:
+                            type: string
+                          domainCode:
+                            type: string
+                          domainName:
+                            type: string
+                          moduleTutorCode:
+                            type: string
+                          beginWeek:
+                            type: string
+                          endWeek:
+                            type: string
+                          departmentDepartment:
+                            type: string
+                          topicCollection:
+                            type: string
+                          virtualUse:
+                            type: string
+                          mavName:
+                            type: string
+                          occurrenceGroup:
+                            type: string
+                  requested:
+                    type: number
+                  count:
+                    type: number
+                  skip:
+                    type: number
+                  total:
+                    type: number
+        '401':
+         description: Unauthorized
+        '403':
+         description: Forbidden
+        '404':
+         description: Record not found 
+  /student-course:
+     get:
+      summary: Find the student course data
+      description: To get the student course details.
+      parameters:
+        - name: maxhits
+          in: query
+          required: false
+          schema:
+            type: number
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: number
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  studentCourses:
+                    type: array
+                    items:
+                     properties:
+                          joinCode:
+                            type: string
+                          studentCode:
+                            type: string
+                          entryYear: 
+                            type: string
+                          course:
+                            type: string
+                          block:
+                            type: string
+                          occurrence:
+                            type: string
+                          courseGroup:
+                            type: string
+                          personalTutor:
+                            type: string
+                          startDate:
+                            type: string
+                            format: date
+                          hesastartDate:
+                            type: string
+                            format: date
+                          hesaEndDate:
+                            type: string
+                            format: date
+                          endDate:
+                            type: string
+                            format: date
+                          expectedEndDate:
+                            type: string
+                            format: date
+                          expiryDate:
+                            type: string
+                            format: date
+                          modeOfAttendance:
+                            type: string
+                          studentJoinStatus:
+                            type: string
+                          entryStatus:
+                            type: string
+                          reasonForTansferCode:
+                            type: string
+                          reasonForTansferDescription:
+                            type: string
+                          qualificationOnEntry:
+                            type: string
+                          countryOfDomicile:
+                            type: string
+                          programmeLength:
+                            type: string
+                          unitsLengthCode:
+                            type: string
+                          unitsLengthName:
+                            type: string
+                          faculty:
+                            type: string
+                          department:
+                            type: string
+                  requested:
+                    type: number
+                  count:
+                    type: number
+                  skip:
+                    type: number
+                  total:
+                    type: number
+        '401':
+         description: Unauthorized
+        '403':
+         description: Forbidden
+        '404':
+         description: Record not found 
+  /student-course/scj-code/{scj-code}:
+     get:
+      summary: Find the student course data by giving scj-code
+      description: To get the student course details for the given scj-code.
+      parameters:
+        - name: scj-code
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: maxhits
+          in: query
+          required: false
+          schema:
+            type: number
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: number
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  studentCourses:
+                    type: array
+                    items:
+                     properties:
+                          joinCode:
+                            type: string
+                          studentCode:
+                            type: string
+                          entryYear: 
+                            type: string
+                          course:
+                            type: string
+                          block:
+                            type: string
+                          occurrence:
+                            type: string
+                          courseGroup:
+                            type: string
+                          personalTutor:
+                            type: string
+                          startDate:
+                            type: string
+                            format: date
+                          hesastartDate:
+                            type: string
+                            format: date
+                          hesaEndDate:
+                            type: string
+                            format: date
+                          endDate:
+                            type: string
+                            format: date
+                          expectedEndDate:
+                            type: string
+                            format: date
+                          expiryDate:
+                            type: string
+                            format: date
+                          modeOfAttendance:
+                            type: string
+                          studentJoinStatus:
+                            type: string
+                          entryStatus:
+                            type: string
+                          reasonForTansferCode:
+                            type: string
+                          reasonForTansferDescription:
+                            type: string
+                          qualificationOnEntry:
+                            type: string
+                          countryOfDomicile:
+                            type: string
+                          programmeLength:
+                            type: string
+                          unitsLengthCode:
+                            type: string
+                          unitsLengthName:
+                            type: string
+                          faculty:
+                            type: string
+                          department:
+                            type: string
+                  requested:
+                    type: number
+                  count:
+                    type: number
+                  skip:
+                    type: number
+                  total:
+                    type: number
+        '401':
+         description: Unauthorized
+        '403':
+         description: Forbidden
+        '404':
+         description: Record not found  
+  /student-course/stu-code/{stu-code}:
+     get:
+      summary: Find the student course data by giving stu-code
+      description: To get the student course details for the given stu-code
+      parameters:
+        - name: stu-code
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: maxhits
+          in: query
+          required: false
+          schema:
+            type: number
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: number
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  studentCourses:
+                    type: array
+                    items:
+                     properties:
+                          joinCode:
+                            type: string
+                          studentCode:
+                            type: string
+                          entryYear: 
+                            type: string
+                          course:
+                            type: string
+                          block:
+                            type: string
+                          occurrence:
+                            type: string
+                          courseGroup:
+                            type: string
+                          personalTutor:
+                            type: string
+                          startDate:
+                            type: string
+                            format: date
+                          hesastartDate:
+                            type: string
+                            format: date
+                          hesaEndDate:
+                            type: string
+                            format: date
+                          endDate:
+                            type: string
+                            format: date
+                          expectedEndDate:
+                            type: string
+                            format: date
+                          expiryDate:
+                            type: string
+                            format: date
+                          modeOfAttendance:
+                            type: string
+                          studentJoinStatus:
+                            type: string
+                          entryStatus:
+                            type: string
+                          reasonForTansferCode:
+                            type: string
+                          reasonForTansferDescription:
+                            type: string
+                          qualificationOnEntry:
+                            type: string
+                          countryOfDomicile:
+                            type: string
+                          programmeLength:
+                            type: string
+                          unitsLengthCode:
+                            type: string
+                          unitsLengthName:
+                            type: string
+                          faculty:
+                            type: string
+                          department:
+                            type: string
+                  requested:
+                    type: number
+                  count:
+                    type: number
+                  skip:
+                    type: number
+                  total:
+                    type: number
+        '401':
+         description: Unauthorized
+        '403':
+         description: Forbidden
+        '404':
+         description: Record not found  
+  /student-course/course-code/{course-code}:
+     get:
+      summary: Find the student course data by giving course-code
+      description: To get the student course details for the given course-code.
+      parameters:
+        - name: course-code
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: maxhits
+          in: query
+          required: false
+          schema:
+            type: number
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: number
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  studentCourses:
+                    type: array
+                    items:
+                     properties:
+                          joinCode:
+                            type: string
+                          studentCode:
+                            type: string
+                          entryYear: 
+                            type: string
+                          course:
+                            type: string
+                          block:
+                            type: string
+                          occurrence:
+                            type: string
+                          courseGroup:
+                            type: string
+                          personalTutor:
+                            type: string
+                          startDate:
+                            type: string
+                            format: date
+                          hesastartDate:
+                            type: string
+                            format: date
+                          hesaEndDate:
+                            type: string
+                            format: date
+                          endDate:
+                            type: string
+                            format: date
+                          expectedEndDate:
+                            type: string
+                            format: date
+                          expiryDate:
+                            type: string
+                            format: date
+                          modeOfAttendance:
+                            type: string
+                          studentJoinStatus:
+                            type: string
+                          entryStatus:
+                            type: string
+                          reasonForTansferCode:
+                            type: string
+                          reasonForTansferDescription:
+                            type: string
+                          qualificationOnEntry:
+                            type: string
+                          countryOfDomicile:
+                            type: string
+                          programmeLength:
+                            type: string
+                          unitsLengthCode:
+                            type: string
+                          unitsLengthName:
+                            type: string
+                          faculty:
+                            type: string
+                          department:
+                            type: string
+                  requested:
+                    type: number
+                  count:
+                    type: number
+                  skip:
+                    type: number
+                  total:
+                    type: number
+        '401':
+         description: Unauthorized
+        '403':
+         description: Forbidden
+        '404':
+         description: Record not found  
+  /student-course/block/{block}:
+     get:
+      summary: Find the student course data by giving block
+      description: To get the student course details for the given block.
+      parameters:
+        - name: block
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: maxhits
+          in: query
+          required: false
+          schema:
+            type: number
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: number
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  studentCourses:
+                    type: array
+                    items:
+                     properties:
+                          joinCode:
+                            type: string
+                          studentCode:
+                            type: string
+                          entryYear: 
+                            type: string
+                          course:
+                            type: string
+                          block:
+                            type: string
+                          occurrence:
+                            type: string
+                          courseGroup:
+                            type: string
+                          personalTutor:
+                            type: string
+                          startDate:
+                            type: string
+                            format: date
+                          hesastartDate:
+                            type: string
+                            format: date
+                          hesaEndDate:
+                            type: string
+                            format: date
+                          endDate:
+                            type: string
+                            format: date
+                          expectedEndDate:
+                            type: string
+                            format: date
+                          expiryDate:
+                            type: string
+                            format: date
+                          modeOfAttendance:
+                            type: string
+                          studentJoinStatus:
+                            type: string
+                          entryStatus:
+                            type: string
+                          reasonForTansferCode:
+                            type: string
+                          reasonForTansferDescription:
+                            type: string
+                          qualificationOnEntry:
+                            type: string
+                          countryOfDomicile:
+                            type: string
+                          programmeLength:
+                            type: string
+                          unitsLengthCode:
+                            type: string
+                          unitsLengthName:
+                            type: string
+                          faculty:
+                            type: string
+                          department:
+                            type: string
+                  requested:
+                    type: number
+                  count:
+                    type: number
+                  skip:
+                    type: number
+                  total:
+                    type: number
+        '401':
+         description: Unauthorized
+        '403':
+         description: Forbidden
+        '404':
+         description: Record not found  
+  /academic-year-period/year/{year}/period/{period}:
+     get:
+      summary: Find the academic year period details by giving the year and period
+      description: To get the academic year period details for the given year and period.
+      parameters:
+        - name: year
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: period
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: maxhits
+          in: query
+          required: false
+          schema:
+            type: number
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: number
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  studentCourses:
+                    type: array
+                    items:
+                     properties:
+                          academicYear:
+                            type: string
+                          period:
+                            type: string
+                          periodWeekNumber: 
+                            type: string
+                          academicYearWeekNumber:
+                            type: string
+                          startDate:
+                            type: string
+                            format: date
+                          endDate:
+                            type: string
+                            format: date
+                  requested:
+                    type: number
+                  count:
+                    type: number
+                  skip:
+                    type: number
+                  total:
+                    type: number
+        '401':
+         description: Unauthorized
+        '403':
+         description: Forbidden
+        '404':
+         description: Record not found  
+  /open-crs-enrolments/stu-code/{stu-code}:
+     get:
+      summary: Find the open course enrollments by giving the stu-code
+      description: To get the open course enrollments details for the given stu-code
+      parameters:
+        - name: stu-code
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: maxhits
+          in: query
+          required: false
+          schema:
+            type: number
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: number
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  openCourseEnrolments:
+                    type: array
+                    items:
+                     properties:
+                          scjCode:
+                            type: string
+                          courseCode:
+                            type: string
+                          academicYear: 
+                            type: string
+                          seqNumber:
+                            type: string
+                          courseBlock:
+                            type: string
+                          occurrence:
+                            type: string
+                          department:
+                            type: string
+                          courseGroup:
+                            type: string
+                          udsGroup: 
+                            type: string
+                          faculty:
+                            type: string
+                          enrolmentStatus:
+                            type: string
+                          modeOfAttendance:
+                            type: string
+                          lastAttendanceDate:
+                            type: string
+                            format: date
+                          startDate:
+                            type: string
+                            format: date
+                          endDate:
+                            type: string
+                            format: date
+                          acceptedRegulations: 
+                            type: string
+                          acceptedRegulationsDate:
+                            type: string
+                          exchangeType:
+                            type: string
+                          externalStudyLocation:
+                            type: string
+                          termAddress: 
+                            type: string
+                          termPostcode:
+                            type: string
+                          programme:
+                            type: string
+                          fullyAdmittedDate:
+                            type: string
+                            format: date
+                          attendanceConfirmedBy:
+                            type: string
+                  requested:
+                    type: number
+                  count:
+                    type: number
+                  skip:
+                    type: number
+                  total:
+                    type: number
+        '401':
+         description: Unauthorized
+        '403':
+         description: Forbidden
+        '404':
+         description: Record not found  
+  /student-module/student-course-code/{student-course-code}/academic-year/{academic-year}:
+     get:
+      summary: Find the student modules by giving the student-course-code and academic-year
+      description: To get the student modules detail
+      parameters:
+        - name: student-course-code
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: academic-year
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: maxhits
+          in: query
+          required: false
+          schema:
+            type: number
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: number
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  studentModules:
+                    type: array
+                    items:
+                     properties:
+                          joinCode:
+                            type: string
+                          moduleCode:
+                            type: string
+                          academicYear: 
+                            type: string
+                          occurrence:
+                            type: string
+                          periodSlotCode:
+                            type: string
+                          schemeCode:
+                            type: string
+                          levelCode:
+                            type: string
+                          moduleSelectionStatusCode:
+                            type: string
+                          moduleSelectionStatusDesc: 
+                            type: string
+                          creditsPassed:
+                            type: string
+                          studentCourseEnrollment:
+                            type: string
+                          entryDate:
+                            type: string
+                          currentAttempt:
+                            type: string
+                          completedNumber:
+                            type: string
+                          actualMark:
+                            type: string
+                          actualGrade: 
+                            type: string
+                          agreedMark:
+                            type: string
+                          agreedGrade:
+                            type: string
+                          resultOfModule:
+                            type: string
+                          initialSasStatus: 
+                            type: string
+                          processStatus:
+                            type: string
+                          scalingStatus:
+                            type: string
+                  requested:
+                    type: number
+                  count:
+                    type: number
+                  skip:
+                    type: number
+                  total:
+                    type: number
+        '401':
+         description: Unauthorized
+        '403':
+         description: Forbidden
+        '404':
+         description: Record not found  
+  /course-module/code/{code}/seqn/{seqn}:
+     get:
+      summary: Find the course modules by giving the diet-code and pdm seqn
+      description: To get the course modules detail
+      parameters:
+        - name: code
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: seqn
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  openCourseEnrolments:
+                    type: array
+                    items:
+                     properties:
+                          dietCode:
+                            type: string
+                          programme:
+                            type: string
+                          courseCode: 
+                            type: string
+                          coursePeriod:
+                            type: string
+                          courseOccurrance:
+                            type: string
+                          inUse:
+                            type: boolean
+                          programmeDietModule:
+                            type: array
+                            items:
+                               type: object
+                               properties:
+                                selectionStatus:
+                                  type: string
+                                relativeYear:
+                                  type: string
+                                elementSequence:
+                                  type: string
+                                moduleCollection:
+                                  type: string
+                                sourceOfLevel:
+                                  type: string
+                                moduleCredits:
+                                  type: string
+                                selectionData:
+                                  type: string
+                                minimumValues: 
+                                  type: string
+                                maximumValues:
+                                  type: string
+                                groupMinimumValue:
+                                  type: string
+                                groupMaximumValue:
+                                  type: string
+                                modulePeriod: 
+                                  type: string
+        '401':
+         description: Unauthorized
+        '403':
+         description: Forbidden
+        '404':
+         description: Record not found  
       x-auth-type: Application & Application User
       x-throttling-tier: Unlimited
       x-throttling-limit:
