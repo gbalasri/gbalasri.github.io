@@ -3457,6 +3457,76 @@ paths:
          description: Forbidden
         '404':
          description: Record not found  
+
+  /course-module/code/{code}:
+     get:
+      summary: Find the course modules by giving the diet-code and pdm seqn
+      description: To get the course modules detail
+      parameters:
+        - name: code
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  openCourseEnrolments:
+                    type: array
+                    items:
+                     properties:
+                          dietCode:
+                            type: string
+                          programme:
+                            type: string
+                          courseCode: 
+                            type: string
+                          coursePeriod:
+                            type: string
+                          courseOccurrance:
+                            type: string
+                          inUse:
+                            type: boolean
+                          programmeDietModule:
+                            type: array
+                            items:
+                               type: object
+                               properties:
+                                selectionStatus:
+                                  type: string
+                                relativeYear:
+                                  type: string
+                                elementSequence:
+                                  type: string
+                                moduleCollection:
+                                  type: string
+                                sourceOfLevel:
+                                  type: string
+                                moduleCredits:
+                                  type: string
+                                selectionData:
+                                  type: string
+                                minimumValues: 
+                                  type: string
+                                maximumValues:
+                                  type: string
+                                groupMinimumValue:
+                                  type: string
+                                groupMaximumValue:
+                                  type: string
+                                modulePeriod: 
+                                  type: string
+        '401':
+         description: Unauthorized
+        '403':
+         description: Forbidden
+        '404':
+         description: Record not found  
   /course-module/code/{code}/seqn/{seqn}:
      get:
       summary: Find the course modules by giving the diet-code and pdm seqn
