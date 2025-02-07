@@ -3457,7 +3457,6 @@ paths:
          description: Forbidden
         '404':
          description: Record not found  
-
   /course-module/code/{code}:
      get:
       summary: Find the course modules by giving the diet-code and pdm seqn
@@ -3550,10 +3549,6 @@ paths:
               schema:
                 type: object
                 properties:
-                  openCourseEnrolments:
-                    type: array
-                    items:
-                     properties:
                           dietCode:
                             type: string
                           programme:
