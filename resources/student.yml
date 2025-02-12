@@ -1,0 +1,164 @@
+ get:
+     summary: Find a student by stu-code
+     description: To get the student details for the given stu-code
+     parameters:
+      - name: stu-code
+        in: path
+        required: true
+        schema:
+          type: string
+     responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  studentCode:
+                    type: string
+                  personIdentifier:
+                    type: string
+                  admissionsAgencyIdentifier: 
+                    type: string
+                  externalReference:
+                    type: string
+                  surname:
+                    type: string
+                  previousSurname: 
+                    type: string
+                  lettersAfterSurname:
+                    type: string
+                  forename1:
+                    type: string
+                  forename2: 
+                    type: string
+                  forename3:
+                    type: string
+                  forenameUsed:
+                    type: string
+                  Initials: 
+                    type: string
+                  officialName:
+                    type: string
+                  titleCode: 
+                    type: string
+                  titleName:
+                    type: string
+                  preferredPronoun:
+                    type: string
+                  dateOfBirth: 
+                    type: string
+                  dateOfDeath:
+                    type: string
+                    format: date
+                  nationalInsuranceNumber:
+                    type: string
+                  highestQualificationCode: 
+                    type: string
+                  highestQualificationName:
+                    type: string
+                  applicantStatusCode: 
+                    type: string
+                  studentStatusCode:
+                    type: string
+                  exStudentStatusCode:
+                    type: string
+                  localEducationAuthorityCode: 
+                    type: string
+                  lastAttendedSchoolCode:
+                    type: string
+                  institutionCode:
+                    type: string
+                  updatedDate: 
+                    type: string
+                    format: date
+                  ucasid:
+                    type: string
+                  feeStatusCode: 
+                    type: string
+                  ucasHomeOrOverseasFlag:
+                    type: string
+                  termTimeAccomodation:
+                    type: string
+                  yearLastAttendedSchoolCode: 
+                    type: string
+                  yearLastAttendedInstitute:
+                    type: string
+                  examNumber: 
+                    type: string
+                  permissionToDiscussFees:
+                    type: string
+                  acornCategory: 
+                    type: string
+                  wpOverarchingFlag:
+                    type: string
+                  ukvi:
+                    type: string
+                  currentStudentCourseJoinCodes:
+                    type: array
+                    items:
+                      type: object
+                  contactAddress:
+                    type: object
+                    properties:
+                      addressLine1:
+                        type: string
+                      addressLine2:
+                        type: string
+                      addressLine3:
+                        type: string
+                      addressLine4:
+                        type: string
+                      addressLine5:
+                        type: string
+                      postCode:
+                        type: string
+                      countryCode:
+                        type: string
+                      startDate:
+                        type: string
+                      endDate:
+                        type: string
+                  homeAddress:
+                    type: object
+                    properties:
+                      addressLine1:
+                        type: string
+                      addressLine2:
+                        type: string
+                      addressLine3:
+                        type: string
+                      addressLine4:
+                        type: string
+                      addressLine5:
+                        type: string
+                      postCode:
+                        type: string
+                      countryCode:
+                        type: string
+                      startDate:
+                        type: string
+                      endDate:
+                        type: string  
+                  contactDetails:
+                    type: object
+                    properties:
+                      institutionEmail:
+                        type: string
+                      email:
+                        type: string
+                      alternateEmail:
+                        type: string
+                      phoneNumber1:
+                        type: string
+                      phoneNumber2:
+                        type: string
+                      phoneNumber3:
+                        type: string
+        '401':
+         description: Unauthorized
+        '403':
+         description: Forbidden
+        '404':
+         description: Record not found 
