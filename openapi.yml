@@ -22,7 +22,7 @@ security:
   - AuthorizationHeader: []
 paths:
   /student/stu-code/{stu-code}:
-   $ref: "/resources/student.yaml"
+   $ref: ./resources/student.yaml
   /titles:
       get:
        summary: Find all titles
