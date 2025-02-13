@@ -19,8 +19,14 @@ tags:
     Students-related operations
 - name: Programmes
   description: Programmes-related operations
+- name: Course
+  description: Course-related operations
+- name: Academic dates
+  description: Academic dates-related operations
+- name: Module
+  description: Module -related operations
 - name: Lookups
-  description: Orders-related operations
+  description: Other lookups
 components:
   securitySchemes:
     AuthorizationHeader:
@@ -570,6 +576,8 @@ paths:
          description: Record not found 
   /drps-files/code/{code}:
      get:
+      tags:
+      - Course
       summary: Find a drps-file-catalogue by code or type
       description: To get the drps file catalogue details for the given code
       parameters:
@@ -627,6 +635,8 @@ paths:
          description: Record not found 
   /drps-files/code/{code}/type/{type}:
      get:
+      tags:
+      - Course
       summary: Find a drps-file-catalogue by code or type
       description: To get the drps file catalogue details for the given code
       parameters:
@@ -688,6 +698,8 @@ paths:
          description: Record not found 
   /admission-course/code/{code}:
      get:
+      tags:
+      - Course
       summary: Find a admission course data by code
       description: To get the admission course details for the given code
       parameters:
@@ -803,6 +815,8 @@ paths:
          description: Record not found
   /course/code/{code}:
      get:
+      tags:
+      - Academic dates
       summary: Find a course data by code
       description: To get the course details for the given code
       parameters:
@@ -1419,6 +1433,8 @@ paths:
            description: Record not found 
   /academic-year:
       get:
+       tags:
+        - Academic dates
        summary: Find the academic year
        description: To get the current academic year
        responses:
@@ -1439,6 +1455,8 @@ paths:
            description: Record not found 
   /semester1-startdate:
       get:
+       tags:
+        - Academic dates
        summary: Find all the semester1 start dates
        description: To get all the semester1 start dates
        responses:
@@ -1467,6 +1485,8 @@ paths:
            description: Record not found 
   /semester1-startdate/acad-year/{year}:
       get:
+       tags:
+        - Academic dates
        summary: Find a the semester1 start dates by giving academic year
        description: To get the semester1 start dates for the given academic year
        parameters:
@@ -1497,6 +1517,8 @@ paths:
            description: Record not found 
   /semester2-startdate:
       get:
+       tags:
+        - Academic dates
        summary: Find all the semester2 start dates
        description: To get all the semester2 start dates
        responses:
@@ -1525,6 +1547,8 @@ paths:
            description: Record not found 
   /semester2-startdate/acad-year/{year}:
       get:
+       tags:
+        - Academic dates
        summary: Find a the semester2 start dates by giving academic year
        description: To get the semester2 start dates for the given academic year
        parameters:
@@ -1970,6 +1994,8 @@ paths:
            description: Record not found 
   /admission-cycle:
       get:
+       tags:
+        - Academic dates
        summary: Find a admission cycle
        description: To get the  dmission cycle
        responses:
@@ -1990,6 +2016,8 @@ paths:
            description: Record not found 
   /course-block:
     get:
+      tags:
+        - Course
       summary: Find the course block details
       description: To get the course block details
       parameters:
@@ -2038,6 +2066,8 @@ paths:
          description: Record not found 
   /course-block/code/{code}:
     get:
+      tags:
+        - Course
       summary: Find the course block details
       description: To get the course block details
       parameters:
@@ -2091,6 +2121,8 @@ paths:
          description: Record not found 
   /course-block/block/{block}:
     get:
+      tags:
+        - Course
       summary: Find the course block details
       description: To get the course block details
       parameters:
@@ -2144,6 +2176,8 @@ paths:
          description: Record not found 
   /course-block/year/{year}:
     get:
+      tags:
+        - Course
       summary: Find the course block details
       description: To get the course block details
       parameters:
@@ -2197,6 +2231,8 @@ paths:
          description: Record not found 
   /module/code/{code}:
     get:
+      tags:
+        - Module
       summary: Find a module by code
       description: To get the module details for the given module code
       parameters:
@@ -2281,6 +2317,8 @@ paths:
          description: Record not found 
   /period-slot/code/{code}:
     get:
+      tags:
+        - Academic dates
       summary: Find a period slot by code
       description: To get the period slot information for the given code
       parameters:
@@ -2331,6 +2369,8 @@ paths:
          description: Record not found 
   /module-occurrences/code/{code}:
      get:
+      tags:
+        - Module
       summary: Find a module occurrence by code 
       description: To get the module occurrence details for the given code
       parameters:
@@ -2428,6 +2468,8 @@ paths:
          description: Record not found 
   /module-occurrences/code/{code}/occurrence/{occurrence}:
      get:
+      tags:
+        - Module
       summary: Find a module occurrence by code 
       description: To get the module occurrence details for the given code
       parameters:
@@ -2530,6 +2572,8 @@ paths:
          description: Record not found 
   /module-occurrences/code/{code}/academic-year/{academic-year}:
      get:
+      tags:
+        - Module
       summary: Find a module occurrence by code 
       description: To get the module occurrence details for the given code
       parameters:
@@ -2632,6 +2676,8 @@ paths:
          description: Record not found 
   /module-occurrences/code/{code}/period/{period}:
      get:
+      tags:
+        - Module
       summary: Find a module occurrence by code 
       description: To get the module occurrence details for the given code
       parameters:
@@ -2734,6 +2780,8 @@ paths:
          description: Record not found 
   /student-course:
      get:
+      tags:
+        - Students
       summary: Find the student course data
       description: To get the student course details.
       parameters:
@@ -2833,6 +2881,8 @@ paths:
          description: Record not found 
   /student-course/scj-code/{scj-code}:
      get:
+      tags:
+        - Students
       summary: Find the student course data by giving scj-code
       description: To get the student course details for the given scj-code.
       parameters:
@@ -2937,6 +2987,8 @@ paths:
          description: Record not found  
   /student-course/stu-code/{stu-code}:
      get:
+      tags:
+        - Students
       summary: Find the student course data by giving stu-code
       description: To get the student course details for the given stu-code
       parameters:
@@ -3041,6 +3093,8 @@ paths:
          description: Record not found  
   /student-course/course-code/{course-code}:
      get:
+      tags:
+        - Students
       summary: Find the student course data by giving course-code
       description: To get the student course details for the given course-code.
       parameters:
@@ -3145,6 +3199,8 @@ paths:
          description: Record not found  
   /student-course/block/{block}:
      get:
+      tags:
+        - Students
       summary: Find the student course data by giving block
       description: To get the student course details for the given block.
       parameters:
@@ -3249,6 +3305,8 @@ paths:
          description: Record not found  
   /academic-year-period/year/{year}/period/{period}:
      get:
+      tags:
+        - Academic dates
       summary: Find the academic year period details by giving the year and period
       description: To get the academic year period details for the given year and period.
       parameters:
@@ -3314,6 +3372,8 @@ paths:
          description: Record not found  
   /open-crs-enrolments/stu-code/{stu-code}:
      get:
+      tags:
+        - Students
       summary: Find the open course enrollments by giving the stu-code
       description: To get the open course enrollments details for the given stu-code
       parameters:
@@ -3412,6 +3472,8 @@ paths:
          description: Record not found  
   /student-module/student-course-code/{student-course-code}/academic-year/{academic-year}:
      get:
+      tags:
+        - Students
       summary: Find the student modules by giving the student-course-code and academic-year
       description: To get the student modules detail
       parameters:
@@ -3507,6 +3569,8 @@ paths:
          description: Record not found  
   /course-module/code/{code}:
      get:
+      tags:
+        - Course
       summary: Find the course modules by giving the diet-code and pdm seqn
       description: To get the course modules detail
       parameters:
@@ -3576,6 +3640,8 @@ paths:
          description: Record not found  
   /course-module/code/{code}/seqn/{seqn}:
      get:
+      tags:
+        - Course
       summary: Find the course modules by giving the diet-code and pdm seqn
       description: To get the course modules detail
       parameters:
