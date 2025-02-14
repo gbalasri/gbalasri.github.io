@@ -3,11 +3,15 @@ info:
   title: APIs Definition
   description: |
       # OpenAPI specification for SAC106
-      **API's** supported by Integration can be found here.
+      The details of the **API's** created in SAC106 can be found here.
   contact:
     name: API Support
+    url: support@xyz.com
     email: support@xyz.com
   version: 0.0.1
+externalDocs:
+    description: External Documentation
+    url: https://example.com
 servers:
   - url: https://dev.api.ed.ac.uk/students/api/v1/
     description: Development server
