@@ -1586,12 +1586,6 @@ paths:
         - Academic dates
        summary: Find all the semester2 start dates
        description: To get all the semester2 start dates
-       parameters:
-        - name: include-not-in-use
-          in: query
-          required: false
-          schema:
-            type: boolean
        responses:
           '200':
             description: ok
@@ -1629,11 +1623,6 @@ paths:
           schema:
             type: string
           example: 2023-4
-        - name: include-not-in-use
-          in: query
-          required: false
-          schema:
-            type: boolean
        responses:
           '200':
             description: ok
