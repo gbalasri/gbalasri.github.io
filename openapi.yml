@@ -1,14 +1,14 @@
 openapi: 3.0.0
 info:
-  title: APIs Definition
+  title: Student Records API
   description: |
-      # OpenAPI specification for SAC106
-      The details of the **API's** created in SAC106 can be found here.
+      # OpenAPI specification for delivering Student Records APIs
+      The project will deliver generic students and programmes/courses related **API's** that can then be used by downstream applications to receive the most up-to-date student and applicant data from EUCLID.
   contact:
     name: API Support
     url: support@xyz.com
     email: support@xyz.com
-  version: 0.0.1
+  version: 1.0.0
 externalDocs:
     description: External Documentation
     url: https://example.com
