@@ -4,10 +4,6 @@ info:
   description: |
       # OpenAPI specification for delivering Student Records APIs
       The project will deliver generic students and programmes/courses related **API's** that can then be used by downstream applications to receive the most up-to-date student and applicant data from EUCLID.
-  contact:
-    name: API Support
-    url: support@xyz.com
-    email: support@xyz.com
   version: 1.0.0
 externalDocs:
     description: External Documentation
@@ -20,15 +16,15 @@ servers:
 tags:
 - name: Students
   description: |
-    Students-related operations
+    Student operations
 - name: Programmes
-  description: Programmes-related operations
+  description: Programme operations
 - name: Course
-  description: Course-related operations
+  description: Course operations
 - name: Academic dates
-  description: Academic dates-related operations
+  description: Academic date operations
 - name: Module
-  description: Module -related operations
+  description: Module operations
 - name: Lookups
   description: Other lookups
 components:
@@ -38,6 +34,83 @@ components:
       in: header
       name: Authorization
       description: 'Use this header to pass the token for authorization'
+  responses:
+    400:
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties: 
+              code:
+                type: string
+              codeName:
+                type: string
+              errorCode: 
+                type: number
+              severity:
+                type: string
+              type:
+                type: string
+              message: 
+                type: string
+    401:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            type: object
+            properties: 
+              code:
+                type: string
+              codeName:
+                type: string
+              errorCode: 
+                type: number
+              severity:
+                type: string
+              type:
+                type: string
+              message: 
+                type: string
+    403:
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            type: object
+            properties: 
+              code:
+                type: string
+              codeName:
+                type: string
+              errorCode: 
+                type: number
+              severity:
+                type: string
+              type:
+                type: string
+              message: 
+                type: string
+    404:
+      description: Record not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties: 
+              code:
+                type: string
+              codeName:
+                type: string
+              errorCode: 
+                type: number
+              severity:
+                type: string
+              type:
+                type: string
+              message: 
+                type: string
 security:
   - AuthorizationHeader: []
 paths:
@@ -202,12 +275,14 @@ paths:
                         type: string
                       phoneNumber3:
                         type: string
+        '400':
+          $ref: "#/components/responses/400"
         '401':
-         description: Unauthorized
+          $ref: "#/components/responses/401"
         '403':
-         description: Forbidden
+         $ref: "#/components/responses/403"
         '404':
-         description: Record not found 
+          $ref: "#/components/responses/404"
   /titles:
       get:
        tags:
@@ -257,12 +332,14 @@ paths:
                       type: number
                     total:
                       type: number
+          '400':
+            $ref: "#/components/responses/400"
           '401':
-           description: Unauthorized
+            $ref: "#/components/responses/401"
           '403':
-           description: Forbidden
+           $ref: "#/components/responses/403"
           '404':
-           description: Record not found 
+            $ref: "#/components/responses/404"
   /titles/code/{code}:
       get:
        tags:
@@ -294,12 +371,14 @@ paths:
                       type: string
                     inUse: 
                       type: boolean
+          '400':
+            $ref: "#/components/responses/400"
           '401':
-           description: Unauthorized
+            $ref: "#/components/responses/401"
           '403':
-           description: Forbidden
+           $ref: "#/components/responses/403"
           '404':
-           description: Record not found 
+            $ref: "#/components/responses/404"
   /published-programme/code/{code}:
     get:
       tags:
@@ -387,12 +466,14 @@ paths:
                     format: date-time
                   updatedByCode :
                     type: string
+        '400':
+          $ref: "#/components/responses/400"
         '401':
-         description: Unauthorized
+          $ref: "#/components/responses/401"
         '403':
-         description: Forbidden
+         $ref: "#/components/responses/403"
         '404':
-         description: Record not found 
+          $ref: "#/components/responses/404"
   /published-prog-inst/code/{code}:
     get:
       tags:
@@ -501,12 +582,14 @@ paths:
                     type: number
                   total:
                     type: number
+        '400':
+          $ref: "#/components/responses/400"
         '401':
-         description: Unauthorized
+          $ref: "#/components/responses/401"
         '403':
-         description: Forbidden
+         $ref: "#/components/responses/403"
         '404':
-         description: Record not found 
+          $ref: "#/components/responses/404"
   /published-prog-inst/code/{code}/seqn/{seqn}:
     get:
       tags:
@@ -597,12 +680,14 @@ paths:
                     format: time
                   updatedByCode:
                     type: string
+        '400':
+          $ref: "#/components/responses/400"
         '401':
-         description: Unauthorized
+          $ref: "#/components/responses/401"
         '403':
-         description: Forbidden
+         $ref: "#/components/responses/403"
         '404':
-         description: Record not found 
+          $ref: "#/components/responses/404"
   /drps-files/code/{code}:
      get:
       tags:
@@ -656,12 +741,14 @@ paths:
                     type: number
                   total:
                     type: number
+        '400':
+          $ref: "#/components/responses/400"
         '401':
-         description: Unauthorized
+          $ref: "#/components/responses/401"
         '403':
-         description: Forbidden
+         $ref: "#/components/responses/403"
         '404':
-         description: Record not found 
+          $ref: "#/components/responses/404"
   /drps-files/code/{code}/type/{type}:
      get:
       tags:
@@ -719,12 +806,14 @@ paths:
                     type: number
                   total:
                     type: number
+        '400':
+          $ref: "#/components/responses/400"
         '401':
-         description: Unauthorized
+          $ref: "#/components/responses/401"
         '403':
-         description: Forbidden
+         $ref: "#/components/responses/403"
         '404':
-         description: Record not found 
+          $ref: "#/components/responses/404"
   /admission-course/code/{code}:
      get:
       tags:
@@ -841,12 +930,14 @@ paths:
                   inUse:
                     type: boolean
                
+        '400':
+          $ref: "#/components/responses/400"
         '401':
-         description: Unauthorized
+          $ref: "#/components/responses/401"
         '403':
-         description: Forbidden
+         $ref: "#/components/responses/403"
         '404':
-         description: Record not found
+          $ref: "#/components/responses/404"
   /course/code/{code}:
      get:
       tags:
@@ -973,12 +1064,14 @@ paths:
                   homeSpinePoint:
                     type: string
                
+        '400':
+          $ref: "#/components/responses/400"
         '401':
-         description: Unauthorized
+          $ref: "#/components/responses/401"
         '403':
-         description: Forbidden
+         $ref: "#/components/responses/403"
         '404':
-         description: Record not found
+          $ref: "#/components/responses/404"
   /awards:
       get:
        tags:
@@ -1066,12 +1159,14 @@ paths:
                        type: number
                       total:
                        type: number
+          '400':
+            $ref: "#/components/responses/400"
           '401':
-           description: Unauthorized
+            $ref: "#/components/responses/401"
           '403':
-           description: Forbidden
+           $ref: "#/components/responses/403"
           '404':
-           description: Record not found 
+            $ref: "#/components/responses/404"
   /awards/code/{code}:
       get:
        tags:
@@ -1141,12 +1236,14 @@ paths:
                       type: string
                     awardDescription:
                       type: string
+          '400':
+            $ref: "#/components/responses/400"
           '401':
-           description: Unauthorized
+            $ref: "#/components/responses/401"
           '403':
-           description: Forbidden
+           $ref: "#/components/responses/403"
           '404':
-           description: Record not found 
+            $ref: "#/components/responses/404"
   /subject/code/{code}:
     get:
       tags:
@@ -1210,12 +1307,14 @@ paths:
                    type: string
                   type:
                    type: string
+        '400':
+          $ref: "#/components/responses/400"
         '401':
-         description: Unauthorized
+          $ref: "#/components/responses/401"
         '403':
-         description: Forbidden
+         $ref: "#/components/responses/403"
         '404':
-         description: Record not found 
+          $ref: "#/components/responses/404"
   /external-subject/code/{code}:
       get:
        tags:
@@ -1268,12 +1367,14 @@ paths:
                       type: string
                     heClassificationSubject:
                       type: string
+          '400':
+            $ref: "#/components/responses/400"
           '401':
-           description: Unauthorized
+            $ref: "#/components/responses/401"
           '403':
-           description: Forbidden
+           $ref: "#/components/responses/403"
           '404':
-           description: Record not found 
+            $ref: "#/components/responses/404"
   /units-of-measure:
       get:
        tags:
@@ -1320,12 +1421,14 @@ paths:
                       type: number
                     total:
                       type: number
+          '400':
+            $ref: "#/components/responses/400"
           '401':
-           description: Unauthorized
+            $ref: "#/components/responses/401"
           '403':
-           description: Forbidden
+           $ref: "#/components/responses/403"
           '404':
-           description: Record not found 
+            $ref: "#/components/responses/404"
   /units-of-measure/code/{code}:
       get:
        tags:
@@ -1354,12 +1457,14 @@ paths:
                         type: string
                       unitsOfMeasurementHeid:
                         type: string
+          '400':
+            $ref: "#/components/responses/400"
           '401':
-           description: Unauthorized
+            $ref: "#/components/responses/401"
           '403':
-           description: Forbidden
+           $ref: "#/components/responses/403"
           '404':
-           description: Record not found 
+            $ref: "#/components/responses/404"
   /modes-of-attendance:
       get:
        tags:
@@ -1433,12 +1538,14 @@ paths:
                       type: number
                     total:
                       type: number
+          '400':
+            $ref: "#/components/responses/400"
           '401':
-           description: Unauthorized
+            $ref: "#/components/responses/401"
           '403':
-           description: Forbidden
+           $ref: "#/components/responses/403"
           '404':
-           description: Record not found 
+            $ref: "#/components/responses/404"
   /modes-of-attendance/code/{code}:
       get:
        tags:
@@ -1494,12 +1601,14 @@ paths:
                         type: string
                       edexcelMoaRef:
                         type: string
+          '400':
+            $ref: "#/components/responses/400"
           '401':
-           description: Unauthorized
+            $ref: "#/components/responses/401"
           '403':
-           description: Forbidden
+           $ref: "#/components/responses/403"
           '404':
-           description: Record not found 
+            $ref: "#/components/responses/404"
   /academic-year:
       get:
        tags:
@@ -1516,12 +1625,14 @@ paths:
                     properties:
                       academicYear:
                         type: string
+          '400':
+            $ref: "#/components/responses/400"
           '401':
-           description: Unauthorized
+            $ref: "#/components/responses/401"
           '403':
-           description: Forbidden
+           $ref: "#/components/responses/403"
           '404':
-           description: Record not found 
+            $ref: "#/components/responses/404"
   /semester1-startdate:
       get:
        tags:
@@ -1546,12 +1657,14 @@ paths:
                           startDate:
                             type: string
                             format: date
+          '400':
+            $ref: "#/components/responses/400"
           '401':
-           description: Unauthorized
+            $ref: "#/components/responses/401"
           '403':
-           description: Forbidden
+           $ref: "#/components/responses/403"
           '404':
-           description: Record not found 
+            $ref: "#/components/responses/404"
   /semester1-startdate/acad-year/{year}:
       get:
        tags:
@@ -1578,12 +1691,14 @@ paths:
                       startDate:
                         type: string
                         format: date
+          '400':
+            $ref: "#/components/responses/400"
           '401':
-           description: Unauthorized
+            $ref: "#/components/responses/401"
           '403':
-           description: Forbidden
+           $ref: "#/components/responses/403"
           '404':
-           description: Record not found 
+            $ref: "#/components/responses/404"
   /semester2-startdate:
       get:
        tags:
@@ -1608,12 +1723,14 @@ paths:
                           startDate:
                             type: string
                             format: date
+          '400':
+            $ref: "#/components/responses/400"
           '401':
-           description: Unauthorized
+            $ref: "#/components/responses/401"
           '403':
-           description: Forbidden
+           $ref: "#/components/responses/403"
           '404':
-           description: Record not found 
+            $ref: "#/components/responses/404"
   /semester2-startdate/acad-year/{year}:
       get:
        tags:
@@ -1640,12 +1757,14 @@ paths:
                       startDate:
                         type: string
                         format: date
+          '400':
+            $ref: "#/components/responses/400"
           '401':
-           description: Unauthorized
+            $ref: "#/components/responses/401"
           '403':
-           description: Forbidden
+           $ref: "#/components/responses/403"
           '404':
-           description: Record not found 
+            $ref: "#/components/responses/404"
   /departments:
       get:
        tags:
@@ -1727,12 +1846,14 @@ paths:
                       type: number
                     total:
                       type: number
+          '400':
+            $ref: "#/components/responses/400"
           '401':
-           description: Unauthorized
+            $ref: "#/components/responses/401"
           '403':
-           description: Forbidden
+           $ref: "#/components/responses/403"
           '404':
-           description: Record not found 
+            $ref: "#/components/responses/404" 
   /departments/code/{code}:
       get:
        tags:
@@ -1796,12 +1917,14 @@ paths:
                         type: string
                       costCenter:
                         type: string
+          '400':
+            $ref: "#/components/responses/400"
           '401':
-           description: Unauthorized
+            $ref: "#/components/responses/401"
           '403':
-           description: Forbidden
+           $ref: "#/components/responses/403"
           '404':
-           description: Record not found
+            $ref: "#/components/responses/404"
   /active-students:
       get:
        tags:
@@ -1981,12 +2104,14 @@ paths:
                       type: number
                     total:
                       type: number
+          '400':
+            $ref: "#/components/responses/400"
           '401':
-           description: Unauthorized
+            $ref: "#/components/responses/401"
           '403':
-           description: Forbidden
+           $ref: "#/components/responses/403"
           '404':
-           description: Record not found 
+            $ref: "#/components/responses/404"
   /student-nationality/mst-code/{mst-code}:
       get:
        tags:
@@ -2033,12 +2158,14 @@ paths:
                       type: string
                     refugeeStatusName: 
                       type: string
+          '400':
+            $ref: "#/components/responses/400"
           '401':
-           description: Unauthorized
+            $ref: "#/components/responses/401"
           '403':
-           description: Forbidden
+           $ref: "#/components/responses/403"
           '404':
-           description: Record not found 
+            $ref: "#/components/responses/404"
   /student-disability/stu-code/{stu-code}:
       get:
        tags:
@@ -2065,12 +2192,14 @@ paths:
                       type: string
                     disabilityName: 
                       type: string
+          '400':
+            $ref: "#/components/responses/400"
           '401':
-           description: Unauthorized
+            $ref: "#/components/responses/401"
           '403':
-           description: Forbidden
+           $ref: "#/components/responses/403"
           '404':
-           description: Record not found 
+            $ref: "#/components/responses/404"
   /admission-cycle:
       get:
        tags:
@@ -2087,12 +2216,14 @@ paths:
                   properties:
                     year:
                       type: string
+          '400':
+            $ref: "#/components/responses/400"
           '401':
-           description: Unauthorized
+            $ref: "#/components/responses/401"
           '403':
-           description: Forbidden
+           $ref: "#/components/responses/403"
           '404':
-           description: Record not found 
+            $ref: "#/components/responses/404"
   /course-block:
     get:
       tags:
@@ -2137,12 +2268,14 @@ paths:
                       type: number
                     total:
                       type: number
+        '400':
+          $ref: "#/components/responses/400"
         '401':
-         description: Unauthorized
+          $ref: "#/components/responses/401"
         '403':
-         description: Forbidden
+         $ref: "#/components/responses/403"
         '404':
-         description: Record not found 
+          $ref: "#/components/responses/404"
   /course-block/code/{code}:
     get:
       tags:
@@ -2192,12 +2325,14 @@ paths:
                       type: number
                     total:
                       type: number
+        '400':
+          $ref: "#/components/responses/400"
         '401':
-         description: Unauthorized
+          $ref: "#/components/responses/401"
         '403':
-         description: Forbidden
+         $ref: "#/components/responses/403"
         '404':
-         description: Record not found 
+          $ref: "#/components/responses/404"
   /course-block/block/{block}:
     get:
       tags:
@@ -2247,12 +2382,14 @@ paths:
                       type: number
                     total:
                       type: number
+        '400':
+          $ref: "#/components/responses/400"
         '401':
-         description: Unauthorized
+          $ref: "#/components/responses/401"
         '403':
-         description: Forbidden
+         $ref: "#/components/responses/403"
         '404':
-         description: Record not found 
+          $ref: "#/components/responses/404" 
   /course-block/year/{year}:
     get:
       tags:
@@ -2302,12 +2439,14 @@ paths:
                       type: number
                     total:
                       type: number
+        '400':
+          $ref: "#/components/responses/400"
         '401':
-         description: Unauthorized
+          $ref: "#/components/responses/401"
         '403':
-         description: Forbidden
+         $ref: "#/components/responses/403"
         '404':
-         description: Record not found 
+          $ref: "#/components/responses/404" 
   /module/code/{code}:
     get:
       tags:
@@ -2393,12 +2532,14 @@ paths:
                     type: string
                   inUse:
                     type: boolean
+        '400':
+          $ref: "#/components/responses/400"
         '401':
-         description: Unauthorized
+          $ref: "#/components/responses/401"
         '403':
-         description: Forbidden
+         $ref: "#/components/responses/403"
         '404':
-         description: Record not found 
+          $ref: "#/components/responses/404" 
   /period-slot/code/{code}:
     get:
       tags:
@@ -2450,12 +2591,14 @@ paths:
                     type: string
                   inUse: 
                     type: boolean
+        '400':
+          $ref: "#/components/responses/400"
         '401':
-         description: Unauthorized
+          $ref: "#/components/responses/401"
         '403':
-         description: Forbidden
+         $ref: "#/components/responses/403"
         '404':
-         description: Record not found 
+          $ref: "#/components/responses/404" 
   /module-occurrences/code/{code}:
      get:
       tags:
@@ -2549,12 +2692,14 @@ paths:
                     type: number
                   total:
                     type: number
+        '400':
+          $ref: "#/components/responses/400"
         '401':
-         description: Unauthorized
+          $ref: "#/components/responses/401"
         '403':
-         description: Forbidden
+         $ref: "#/components/responses/403"
         '404':
-         description: Record not found 
+          $ref: "#/components/responses/404"
   /module-occurrences/code/{code}/occurrence/{occurrence}:
      get:
       tags:
@@ -2653,12 +2798,14 @@ paths:
                     type: number
                   total:
                     type: number
+        '400':
+          $ref: "#/components/responses/400"
         '401':
-         description: Unauthorized
+          $ref: "#/components/responses/401"
         '403':
-         description: Forbidden
+         $ref: "#/components/responses/403"
         '404':
-         description: Record not found 
+          $ref: "#/components/responses/404" 
   /module-occurrences/code/{code}/academic-year/{academic-year}:
      get:
       tags:
@@ -2757,12 +2904,14 @@ paths:
                     type: number
                   total:
                     type: number
+        '400':
+          $ref: "#/components/responses/400"
         '401':
-         description: Unauthorized
+          $ref: "#/components/responses/401"
         '403':
-         description: Forbidden
+         $ref: "#/components/responses/403"
         '404':
-         description: Record not found 
+          $ref: "#/components/responses/404" 
   /module-occurrences/code/{code}/period/{period}:
      get:
       tags:
@@ -2861,12 +3010,14 @@ paths:
                     type: number
                   total:
                     type: number
+        '400':
+          $ref: "#/components/responses/400"
         '401':
-         description: Unauthorized
+          $ref: "#/components/responses/401"
         '403':
-         description: Forbidden
+         $ref: "#/components/responses/403"
         '404':
-         description: Record not found 
+          $ref: "#/components/responses/404"
   /student-course:
      get:
       tags:
@@ -2962,12 +3113,14 @@ paths:
                     type: number
                   total:
                     type: number
+        '400':
+          $ref: "#/components/responses/400"
         '401':
-         description: Unauthorized
+          $ref: "#/components/responses/401"
         '403':
-         description: Forbidden
+         $ref: "#/components/responses/403"
         '404':
-         description: Record not found 
+          $ref: "#/components/responses/404" 
   /student-course/scj-code/{scj-code}:
      get:
       tags:
@@ -3068,12 +3221,14 @@ paths:
                     type: number
                   total:
                     type: number
+        '400':
+          $ref: "#/components/responses/400"
         '401':
-         description: Unauthorized
+          $ref: "#/components/responses/401"
         '403':
-         description: Forbidden
+         $ref: "#/components/responses/403"
         '404':
-         description: Record not found  
+          $ref: "#/components/responses/404" 
   /student-course/stu-code/{stu-code}:
      get:
       tags:
@@ -3174,12 +3329,14 @@ paths:
                     type: number
                   total:
                     type: number
+        '400':
+          $ref: "#/components/responses/400"
         '401':
-         description: Unauthorized
+          $ref: "#/components/responses/401"
         '403':
-         description: Forbidden
+         $ref: "#/components/responses/403"
         '404':
-         description: Record not found  
+          $ref: "#/components/responses/404"  
   /student-course/course-code/{course-code}:
      get:
       tags:
@@ -3280,12 +3437,14 @@ paths:
                     type: number
                   total:
                     type: number
+        '400':
+          $ref: "#/components/responses/400"
         '401':
-         description: Unauthorized
+          $ref: "#/components/responses/401"
         '403':
-         description: Forbidden
+         $ref: "#/components/responses/403"
         '404':
-         description: Record not found  
+          $ref: "#/components/responses/404" 
   /student-course/block/{block}:
      get:
       tags:
@@ -3386,12 +3545,14 @@ paths:
                     type: number
                   total:
                     type: number
+        '400':
+          $ref: "#/components/responses/400"
         '401':
-         description: Unauthorized
+          $ref: "#/components/responses/401"
         '403':
-         description: Forbidden
+         $ref: "#/components/responses/403"
         '404':
-         description: Record not found  
+          $ref: "#/components/responses/404" 
   /academic-year-period/year/{year}/period/{period}:
      get:
       tags:
@@ -3453,12 +3614,14 @@ paths:
                     type: number
                   total:
                     type: number
+        '400':
+          $ref: "#/components/responses/400"
         '401':
-         description: Unauthorized
+          $ref: "#/components/responses/401"
         '403':
-         description: Forbidden
+         $ref: "#/components/responses/403"
         '404':
-         description: Record not found  
+          $ref: "#/components/responses/404"  
   /open-crs-enrolments/stu-code/{stu-code}:
      get:
       tags:
@@ -3553,12 +3716,14 @@ paths:
                     type: number
                   total:
                     type: number
+        '400':
+          $ref: "#/components/responses/400"
         '401':
-         description: Unauthorized
+          $ref: "#/components/responses/401"
         '403':
-         description: Forbidden
+         $ref: "#/components/responses/403"
         '404':
-         description: Record not found  
+          $ref: "#/components/responses/404"  
   /student-module/student-course-code/{student-course-code}/academic-year/{academic-year}:
      get:
       tags:
@@ -3650,12 +3815,14 @@ paths:
                     type: number
                   total:
                     type: number
+        '400':
+          $ref: "#/components/responses/400"
         '401':
-         description: Unauthorized
+          $ref: "#/components/responses/401"
         '403':
-         description: Forbidden
+         $ref: "#/components/responses/403"
         '404':
-         description: Record not found  
+          $ref: "#/components/responses/404"  
   /course-module/code/{code}:
      get:
       tags:
@@ -3726,12 +3893,14 @@ paths:
                                   type: string
                                 modulePeriod: 
                                   type: string
+        '400':
+          $ref: "#/components/responses/400"
         '401':
-         description: Unauthorized
+          $ref: "#/components/responses/401"
         '403':
-         description: Forbidden
+         $ref: "#/components/responses/403"
         '404':
-         description: Record not found  
+          $ref: "#/components/responses/404" 
   /course-module/code/{code}/seqn/{seqn}:
      get:
       tags:
@@ -3803,12 +3972,14 @@ paths:
                                   type: string
                                 modulePeriod: 
                                   type: string
+        '400':
+          $ref: "#/components/responses/400"
         '401':
-         description: Unauthorized
+          $ref: "#/components/responses/401"
         '403':
-         description: Forbidden
+         $ref: "#/components/responses/403"
         '404':
-         description: Record not found  
+          $ref: "#/components/responses/404"
       x-auth-type: Application & Application User
       x-throttling-tier: Unlimited
       x-throttling-limit:
