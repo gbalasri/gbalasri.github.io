@@ -54,6 +54,13 @@ components:
                 type: string
               message: 
                 type: string
+            example:
+              code: 400
+              codeName: Invalid parameter
+              errorCode: -7655
+              severity: error
+              type: process
+              message: Invalid value for token 'XXXX'. This is defined as a mandatory value, but the value is blank
     401:
       description: Unauthorized
       content:
@@ -73,6 +80,13 @@ components:
                 type: string
               message: 
                 type: string
+            example:
+              code: 401
+              codeName: Unauthorized
+              errorCode: 401
+              severity: error
+              type: process
+              message: The user has no access
     403:
       description: Forbidden
       content:
@@ -92,6 +106,13 @@ components:
                 type: string
               message: 
                 type: string
+            example:
+              code: 403
+              codeName: Forbidden
+              errorCode: 403
+              severity: error
+              type: process
+              message: Forbidden
     404:
       description: Record not found
       content:
@@ -111,6 +132,13 @@ components:
                 type: string
               message: 
                 type: string
+            example:
+              code: 404
+              codeName: Not found
+              errorCode: -5505
+              severity: error
+              type: process
+              message: Record Not Found
 security:
   - AuthorizationHeader: []
 paths:
@@ -275,6 +303,321 @@ paths:
                         type: string
                       phoneNumber3:
                         type: string
+                example:
+                  studentCode: S12XXXXX
+                  mstCode: 0000006XXXXX
+                  personIdentifier: null
+                  admissionsAgencyIdentifier: null
+                  externalReference: null
+                  surname: KHAMIS
+                  previousSurname: null
+                  lettersAfterSurname: null
+                  forename1: DORAN
+                  forename2: null
+                  forename3: null
+                  forenameUsed: null
+                  initials: D
+                  gender: M
+                  officialName: Doran Khamis
+                  titleCode: MR
+                  titleName: Mr
+                  preferredPronoun: null
+                  dateOfBirth: 1989-09-23
+                  dateOfDeath: null
+                  nationalInsuranceNumber: null
+                  highestQualificationCode: null
+                  highestQualificationName: null
+                  applicantStatusCode: A
+                  studentStatusCode: null
+                  exStudentStatusCode: null
+                  localEducationAuthorityCode: 331
+                  lastAttendedSchoolCode: null
+                  institutionCode: null
+                  updatedDate: 2012-11-27
+                  ucasId: null
+                  feeStatusCode: N
+                  ucasHomeOrOverseasFlag: null
+                  termTimeAccomodation: null
+                  yearLastAttendedSchoolCode: null
+                  yearLastAttendedInstitute: null
+                  examNumber: null
+                  permissionToDiscussFees: null
+                  acornCategory: null
+                  wpOverarchingFlag: null
+                  ukvi": N
+                  currentStudentCourseJoinCodes: [
+                      S1324506/1
+                  ]
+                  contactAddress: 
+                      addressLine1: BLOCK C, HARDY FARM RESIDENCE
+                      addressLine2: 105 HARDY LANE
+                      addressLine3: MANCHESTER
+                      addressLine4: GREATER MANCHESTER
+                      addressLine5: ENGLAND
+                      postcode: M21 8DN
+                      countryCode: null
+                      startDate: 27/Nov/2012
+                      endDate: null
+                  homeAddress: 
+                      addressLine1: 72 MICKLETON ROAD
+                      addressLine2: EARLSDON
+                      addressLine3: COVENTRY
+                      addressLine4: WEST MIDLANDS
+                      addressLine5: ENGLAND
+                      postcode: CV5 6PQ
+                      countryCode: null
+                      startDate: 27/Nov/2012
+                      endDate: null
+                  contactDetails: 
+                      institutionEmail: null
+                      email: null
+                      alternateEmail: null
+                      phoneNumber1: 447873137354
+                      phoneNumber2: null
+                      phoneNumber3: null
+
+        '400':
+          $ref: "#/components/responses/400"
+        '401':
+          $ref: "#/components/responses/401"
+        '403':
+         $ref: "#/components/responses/403"
+        '404':
+          $ref: "#/components/responses/404"
+  /student/mst-code/{mst-code}:
+    get:
+      tags:
+      - Students
+      summary: Find a student by mst-code
+      description: To get the student details for the given mst-code
+      parameters:
+      - name: mst-code
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: 
+                  studentCode:
+                    type: string
+                  personIdentifier:
+                    type: string
+                  admissionsAgencyIdentifier: 
+                    type: string
+                  externalReference:
+                    type: string
+                  surname:
+                    type: string
+                  previousSurname: 
+                    type: string
+                  lettersAfterSurname:
+                    type: string
+                  forename1:
+                    type: string
+                  forename2: 
+                    type: string
+                  forename3:
+                    type: string
+                  forenameUsed:
+                    type: string
+                  Initials: 
+                    type: string
+                  officialName:
+                    type: string
+                  titleCode: 
+                    type: string
+                  titleName:
+                    type: string
+                  preferredPronoun:
+                    type: string
+                  dateOfBirth: 
+                    type: string
+                  dateOfDeath:
+                    type: string
+                    format: date
+                  nationalInsuranceNumber:
+                    type: string
+                  highestQualificationCode: 
+                    type: string
+                  highestQualificationName:
+                    type: string
+                  applicantStatusCode: 
+                    type: string
+                  studentStatusCode:
+                    type: string
+                  exStudentStatusCode:
+                    type: string
+                  localEducationAuthorityCode: 
+                    type: string
+                  lastAttendedSchoolCode:
+                    type: string
+                  institutionCode:
+                    type: string
+                  updatedDate: 
+                    type: string
+                    format: date
+                  ucasid:
+                    type: string
+                  feeStatusCode: 
+                    type: string
+                  ucasHomeOrOverseasFlag:
+                    type: string
+                  termTimeAccomodation:
+                    type: string
+                  yearLastAttendedSchoolCode: 
+                    type: string
+                  yearLastAttendedInstitute:
+                    type: string
+                  examNumber: 
+                    type: string
+                  permissionToDiscussFees:
+                    type: string
+                  acornCategory: 
+                    type: string
+                  wpOverarchingFlag:
+                    type: string
+                  ukvi:
+                    type: string
+                  currentStudentCourseJoinCodes:
+                    type: array
+                    items:
+                      type: object
+                  contactAddress:
+                    type: object
+                    properties:
+                      addressLine1:
+                        type: string
+                      addressLine2:
+                        type: string
+                      addressLine3:
+                        type: string
+                      addressLine4:
+                        type: string
+                      addressLine5:
+                        type: string
+                      postCode:
+                        type: string
+                      countryCode:
+                        type: string
+                      startDate:
+                        type: string
+                      endDate:
+                        type: string
+                  homeAddress:
+                    type: object
+                    properties:
+                      addressLine1:
+                        type: string
+                      addressLine2:
+                        type: string
+                      addressLine3:
+                        type: string
+                      addressLine4:
+                        type: string
+                      addressLine5:
+                        type: string
+                      postCode:
+                        type: string
+                      countryCode:
+                        type: string
+                      startDate:
+                        type: string
+                      endDate:
+                        type: string  
+                  contactDetails:
+                    type: object
+                    properties:
+                      institutionEmail:
+                        type: string
+                      email:
+                        type: string
+                      alternateEmail:
+                        type: string
+                      phoneNumber1:
+                        type: string
+                      phoneNumber2:
+                        type: string
+                      phoneNumber3:
+                        type: string
+                example:
+                  studentCode: S12XXXXX
+                  mstCode: 0000006XXXXX
+                  personIdentifier: null
+                  admissionsAgencyIdentifier: null
+                  externalReference: null
+                  surname: KHAMIS
+                  previousSurname: null
+                  lettersAfterSurname: null
+                  forename1: DORAN
+                  forename2: null
+                  forename3: null
+                  forenameUsed: null
+                  initials: D
+                  gender: M
+                  officialName: Doran Khamis
+                  titleCode: MR
+                  titleName: Mr
+                  preferredPronoun: null
+                  dateOfBirth: 1989-09-23
+                  dateOfDeath: null
+                  nationalInsuranceNumber: null
+                  highestQualificationCode: null
+                  highestQualificationName: null
+                  applicantStatusCode: A
+                  studentStatusCode: null
+                  exStudentStatusCode: null
+                  localEducationAuthorityCode: 331
+                  lastAttendedSchoolCode: null
+                  institutionCode: null
+                  updatedDate: 2012-11-27
+                  ucasId: null
+                  feeStatusCode: N
+                  ucasHomeOrOverseasFlag: null
+                  termTimeAccomodation: null
+                  yearLastAttendedSchoolCode: null
+                  yearLastAttendedInstitute: null
+                  examNumber: null
+                  permissionToDiscussFees: null
+                  acornCategory: null
+                  wpOverarchingFlag: null
+                  ukvi": N
+                  currentStudentCourseJoinCodes: [
+                      S1324506/1
+                  ]
+                  contactAddress: 
+                      addressLine1: BLOCK C, HARDY FARM RESIDENCE
+                      addressLine2: 105 HARDY LANE
+                      addressLine3: MANCHESTER
+                      addressLine4: GREATER MANCHESTER
+                      addressLine5: ENGLAND
+                      postcode: M21 8DN
+                      countryCode: null
+                      startDate: 27/Nov/2012
+                      endDate: null
+                  homeAddress: 
+                      addressLine1: 72 MICKLETON ROAD
+                      addressLine2: EARLSDON
+                      addressLine3: COVENTRY
+                      addressLine4: WEST MIDLANDS
+                      addressLine5: ENGLAND
+                      postcode: CV5 6PQ
+                      countryCode: null
+                      startDate: 27/Nov/2012
+                      endDate: null
+                  contactDetails: 
+                      institutionEmail: null
+                      email: null
+                      alternateEmail: null
+                      phoneNumber1: 447873137354
+                      phoneNumber2: null
+                      phoneNumber3: null
+
         '400':
           $ref: "#/components/responses/400"
         '401':
@@ -332,6 +675,15 @@ paths:
                       type: number
                     total:
                       type: number
+                example:
+                  titles:
+                    -  titleCode: HON
+                       titleName: Honorable
+                       inUser: True
+                  requested: 10
+                  count: 1
+                  skip: 0
+                  total: 1
           '400':
             $ref: "#/components/responses/400"
           '401':
@@ -371,6 +723,10 @@ paths:
                       type: string
                     inUse: 
                       type: boolean
+                  example:
+                   titleCode: HON
+                   titleName: Honorable
+                   inUser: True
           '400':
             $ref: "#/components/responses/400"
           '401':
@@ -466,6 +822,36 @@ paths:
                     format: date-time
                   updatedByCode :
                     type: string
+                example:
+                  ipProgrammeCode: PTPDVACGWF1U
+                  sourceOfData: null
+                  pubProgSourceCode: PTPDVACGWF1U
+                  title: PG Professional Development Applied Conservation Genetics with Wildlife Forensics (Online Learning) (ICL) - 2 Years
+                  departmentCode: SU336
+                  keywords: null
+                  subjectAreas: null
+                  programmeOfStudyCode: PTPROFDEV
+                  routeCode: PTPDVACGWF1U
+                  process: D
+                  publish: true
+                  status: P
+                  standardLetterGroupCode: IPP
+                  standardResponseLetter: DPT_ROU_SUM
+                  organiser: 000001325997
+                  coursePublishingSchedule: null
+                  noOfReferences: null
+                  publishOnlyNextAcademicYear: false
+                  publishedStartDates: null
+                  sacsNotes: null
+                  facultyCode: MVM
+                  inUse: true
+                  feeAttached: false
+                  createdDate: 2018-01-17
+                  createdTime: 14:38:12
+                  createdByCode: 000000808878
+                  updatedDate: 2025-01-17
+                  updatedTime: 20:32:57
+                  updatedByCode: SITSADMIN
         '400':
           $ref: "#/components/responses/400"
         '401':
@@ -582,6 +968,66 @@ paths:
                     type: number
                   total:
                     type: number
+                example:
+                  publisedProgramInstances:
+                  - ipProgrammeCode: VRNGRBIOVS3F
+                    sequenceNumber: 0078
+                    applyURL: https://www-dev.star.euclid.ed.ac.uk/public/urd/sits.urd/run/siw_ipp_lgn.login?process=siw_ipp_app&code1=VRNGRBIOVS3F&code2=0078
+                    sourceOfData: MCB
+                    pubProgSourceCode: VRNGRBIOVS3F
+                    title: null
+                    academicYearCode: 2025/6
+                    periodSlotCode: SEM2
+                    periodSlotName: Semester 2
+                    block: 11
+                    occurrence: J
+                    startDate: 2026-04-01
+                    endDate: 2027-10-31
+                    modeOfAttendanceCode: FTPY
+                    publish: T
+                    status: C
+                    standardLetterGroupCode: IPO
+                    inUse: true
+                    actualStartDate: null
+                    deadlineDate: null
+                    departmentCode: SU541
+                    createdDate: 2024-09-30
+                    createdTime: 10:50:02
+                    createdByCode: 000002045752
+                    updatedDate: 2024-09-30
+                    updatedTime: 10:50:02
+                    updatedByCode: 000002045752
+                  - ipProgrammeCode: VRNGRBIOVS3F
+                    sequenceNumber: 0079
+                    applyURL: https://www-dev.star.euclid.ed.ac.uk/public/urd/sits.urd/run/siw_ipp_lgn.login?process=siw_ipp_app&code1=VRNGRBIOVS3F&code2=0079
+                    sourceOfData: MCB
+                    pubProgSourceCode: VRNGRBIOVS3F
+                    title: null
+                    academicYearCode: 2025/6
+                    periodSlotCode: SEM2
+                    periodSlotName: Semester 2
+                    block: 11
+                    occurrence: K
+                    startDate: 2026-05-01
+                    endDate: 2027-11-30
+                    modeOfAttendanceCode: FTPY
+                    publish: T
+                    status: C
+                    standardLetterGroupCode: IPO
+                    inUse: true
+                    actualStartDate: null
+                    deadlineDate: null
+                    departmentCode: SU541
+                    createdDate: 2024-09-30
+                    createdTime: 10:50:03
+                    createdByCode: 000002045752
+                    updatedDate: 2024-09-30
+                    updatedTime: 10:50:03
+                    updatedByCode: 000002045752
+                  requested: 100
+                  count: 2
+                  skip: 0
+                  total: 2
         '400':
           $ref: "#/components/responses/400"
         '401':
@@ -680,6 +1126,66 @@ paths:
                     format: time
                   updatedByCode:
                     type: string
+                example:
+                  publisedProgramInstances:
+                  - ipProgrammeCode: VRNGRBIOVS3F
+                    sequenceNumber: 0078
+                    applyURL: https://www-dev.star.euclid.ed.ac.uk/public/urd/sits.urd/run/siw_ipp_lgn.login?process=siw_ipp_app&code1=VRNGRBIOVS3F&code2=0078
+                    sourceOfData: MCB
+                    pubProgSourceCode: VRNGRBIOVS3F
+                    title: null
+                    academicYearCode: 2025/6
+                    periodSlotCode: SEM2
+                    periodSlotName: Semester 2
+                    block: 11
+                    occurrence: J
+                    startDate: 2026-04-01
+                    endDate: 2027-10-31
+                    modeOfAttendanceCode: FTPY
+                    publish: T
+                    status: C
+                    standardLetterGroupCode: IPO
+                    inUse: true
+                    actualStartDate: null
+                    deadlineDate: null
+                    departmentCode: SU541
+                    createdDate: 2024-09-30
+                    createdTime: 10:50:02
+                    createdByCode: 000002045752
+                    updatedDate: 2024-09-30
+                    updatedTime: 10:50:02
+                    updatedByCode: 000002045752
+                  - ipProgrammeCode: VRNGRBIOVS3F
+                    sequenceNumber: 0079
+                    applyURL: https://www-dev.star.euclid.ed.ac.uk/public/urd/sits.urd/run/siw_ipp_lgn.login?process=siw_ipp_app&code1=VRNGRBIOVS3F&code2=0079
+                    sourceOfData: MCB
+                    pubProgSourceCode: VRNGRBIOVS3F
+                    title: null
+                    academicYearCode: 2025/6
+                    periodSlotCode: SEM2
+                    periodSlotName: Semester 2
+                    block: 11
+                    occurrence: K
+                    startDate: 2026-05-01
+                    endDate: 2027-11-30
+                    modeOfAttendanceCode: FTPY
+                    publish: T
+                    status: C
+                    standardLetterGroupCode: IPO
+                    inUse: true
+                    actualStartDate: null
+                    deadlineDate: null
+                    departmentCode: SU541
+                    createdDate: 2024-09-30
+                    createdTime: 10:50:03
+                    createdByCode: 000002045752
+                    updatedDate: 2024-09-30
+                    updatedTime: 10:50:03
+                    updatedByCode: 000002045752
+                  requested: 100
+                  count: 2
+                  skip: 0
+                  total: 2
         '400':
           $ref: "#/components/responses/400"
         '401':
@@ -741,6 +1247,30 @@ paths:
                     type: number
                   total:
                     type: number
+                example:
+                    drpsFileCatalogues:
+                    - sessionYear: 2022/3
+                      type: DPS
+                      code: ptmscmachxxx
+                      filePath: /apps/xxx/uoe/drps/22-23/dps/ptmscmacxxx.htm
+                      fileName: ptmscmachxxx.htm
+                      fileExtension: htm
+                      url: http://www.drps.ed.ac.uk/22-23/dps/ptmscmachxxx.htm
+                      publishedDate: 21-NOV-24
+                      fileModifiedDate: 07-APR-22
+                    - sessionYear: 2023/4
+                      type: DPS
+                      code: ptmscmachxxx
+                      filePath: /apps/xxx/uoe/drps/23-24/dps/ptmscmachxxx.htm
+                      fileName: ptmscmachxxx.htm
+                      fileExtension: htm
+                      url: http://www.drps.ed.ac.uk/23-24/dps/ptmscmachxxx.htm
+                      publishedDate: 21-NOV-24
+                      fileModifiedDate: 17-FEB-23
+                    requested: 100
+                    count: 2
+                    skip: 0
+                    total: 2
         '400':
           $ref: "#/components/responses/400"
         '401':
@@ -806,6 +1336,30 @@ paths:
                     type: number
                   total:
                     type: number
+                example:
+                    drpsFileCatalogues:
+                    - sessionYear: 2022/3
+                      type: DPS
+                      code: ptmscmachxxx
+                      filePath: /apps/xxx/uoe/drps/22-23/dps/ptmscmacxxx.htm
+                      fileName: ptmscmachxxx.htm
+                      fileExtension: htm
+                      url: http://www.drps.ed.ac.uk/22-23/dps/ptmscmachxxx.htm
+                      publishedDate: 21-NOV-24
+                      fileModifiedDate: 07-APR-22
+                    - sessionYear: 2023/4
+                      type: DPS
+                      code: ptmscmachxxx
+                      filePath: /apps/xxx/uoe/drps/23-24/dps/ptmscmachxxx.htm
+                      fileName: ptmscmachxxx.htm
+                      fileExtension: htm
+                      url: http://www.drps.ed.ac.uk/23-24/dps/ptmscmachxxx.htm
+                      publishedDate: 21-NOV-24
+                      fileModifiedDate: 17-FEB-23
+                    requested: 100
+                    count: 2
+                    skip: 0
+                    total: 2
         '400':
           $ref: "#/components/responses/400"
         '401':
@@ -929,7 +1483,52 @@ paths:
                     type: string
                   inUse:
                     type: boolean
-               
+                example:
+                 masCourseCode: PHPHDROBVI1F
+                 courseName: Robotics CompVision CompGraphics and Animation
+                 courseGroupCode: ANI
+                 courseGroupName: Animation
+                 scheme: PG
+                 entryBlock: 11
+                 occurrence: X
+                 modeOfAttendanceCode: FTFY
+                 modeOfAttendanceName: Full-time
+                 admissionsEntrySystemCode: D
+                 admissionsEntrySystemName: Direct entry
+                 departmentCode: SU747
+                 departmentName: School of Informatics
+                 courseCode: PHPHDROBVI1F
+                 routeCode: PHPHDROBVI1F
+                 courseTitle: PhD Informatics- IPAB- Robotics Computer Vision Computer Graphics and Animation (with placement) - 3 Years
+                 validForOtherAdmissions: false
+                 prospectusCode1: 495
+                 prospectusCode2: 495
+                 prospectusCode3: 495
+                 taughtOrResearch: PGR
+                 firstIntakeSession: 2022/3
+                 lastIntakeSession: 2022/3
+                 ucasCourse: 12
+                 ucasProgId: 12
+                 tutor1: 000000001719
+                 tutor2: null
+                 contact: null
+                 printInReport: true
+                 facultyCode: SCE
+                 facultyName: College of Science and Engineering
+                 miniPortfolio: ON
+                 programmeFlag: PG
+                 feeDepositAmount: 1000
+                 disclosureCheckRequired: false
+                 applicationTypeCode: APPTYPE12
+                 applicationTypeName: Application Type 12 - PGR with CV
+                 highCostGradEntry: null
+                 admitOnAtr: true
+                 accessBursary: false
+                 ugProspectusCode: null
+                 vsProspectus: false
+                 variableStartDate: false
+                 notes: null
+                 inUse: true
         '400':
           $ref: "#/components/responses/400"
         '401':
@@ -941,7 +1540,7 @@ paths:
   /course/code/{code}:
      get:
       tags:
-      - Academic dates
+      - Course
       summary: Find a course data by code
       description: To get the course details for the given code
       parameters:
@@ -1063,6 +1662,58 @@ paths:
                     type: string
                   homeSpinePoint:
                     type: string
+                example:
+                  courseCode: PRDDSDENSG1F
+                  name: PRDDSDENSG1F
+                  fullTitle: Dental Surgery
+                  modeOfAttendanceCode: FTFY
+                  modeOfAttendanceName: Full-time
+                  departmentCode: SU723
+                  courseDurationLength: 2
+                  courseDurationUnitCode: 1
+                  courseDurationUnitName: YEAR
+                  researchCourse: true
+                  distanceLearning: false
+                  routeName: Dental Surgery (DDS) (2 Years) (Full-time)
+                  routeType: SINGLE
+                  feeProfile: PRDDS
+                  subjectBalance: 0
+                  subjectArea: SU723_CLIN_SCI
+                  collaborative: false
+                  yearsApcCharged: null
+                  additionalCost: 00000
+                  costRecoveryProgramme: 3
+                  engagementScheduleCode: null
+                  decGradCode: null
+                  ordinaryExitRoute: false
+                  julyGradCode: null
+                  awardCode: DDS
+                  awardName: DDS
+                  externalAwardName: Doctor of Dental Surgery
+                  awardSortOrder: AR
+                  academicGroupingCode: EDOC
+                  routeCode: PRDDSDENSG1F
+                  scheme: PG
+                  programmeCode: PRDDS
+                  programmeName: Doctor of Dental Surgery
+                  mcrCode: PRDDSDENSG1F
+                  programmeGroup: Dental Surgery
+                  externalSubjectCode: 100266
+                  programmeGenre: MEL
+                  atasRequiredResearch: false
+                  atasRequiredTaught: false
+                  courseGroup: PRDDSF02Y
+                  faculty: MVM
+                  returnFormat: M
+                  teacherTrainingCode: 07
+                  teacherTrainingName: Not a teacher training course
+                  majorFundSourceCode: 91
+                  majorFundSourceName: Funded entirely by student tuition fees
+                  note: null
+                  writeUpPeriod: 24
+                  homeSpinePoint: null
+                  overseasSpinePoint: null
+                  inUse: true
                
         '400':
           $ref: "#/components/responses/400"
@@ -1159,6 +1810,60 @@ paths:
                        type: number
                       total:
                        type: number
+                  example:
+                    awards:
+                      - awardCode: ACCES(TESOL)
+                        awardName: Access
+                        inUse: false
+                        validatingBodyCode: E56
+                        validatingBodyName: University of Edinburgh
+                        extQualAimCode: X99
+                        extQualAimName: No Formal Qualification aim below HE Level
+                        pgOrUgAward: U
+                        createdDate: 07/JUL/1998
+                        toDate: 30/SEP/2001
+                        hoIndicator: x
+                        academicGroupingCode: NGAC
+                        academicGroupingName: Non-graduating - Access Course
+                        eligibleGeneralCouncil: false
+                        eligibleAttendGraduationCeremony: false
+                        procViaGradCeremony: false
+                        displayProgNameInGradProg: false
+                        academicOutcome: 9
+                        edocRegFormFrom: null
+                        awardSortOrder: WA
+                        scqfProgLevel: SCQF7
+                        degreeCertificateTitle: null
+                        awardDescription: Access
+                      - awardCode: BA
+                        awardName: BA (Ord)
+                        inUse: true
+                        validatingBodyCode: E56
+                        validatingBodyName: University of Edinburgh
+                        extQualAimCode: I00
+                        extQualAimName: Ordinary (Non-Honours) First Degree
+                        pgOrUgAward: U
+                        createdDate: 07/JUL/1998
+                        toDate: null
+                        hoIndicator: O
+                        academicGroupingCode: FDXX
+                        academicGroupingName: First degree
+                        eligibleGeneralCouncil: false
+                        eligibleAttendGraduationCeremony: false
+                        procViaGradCeremony: true
+                        displayProgNameInGradProg: true
+                        academicOutcome: 6
+                        edocRegFormFrom: null
+                        awardSortOrder: SP
+                        scqfProgLevel: SCQF9
+                        degreeCertificateTitle: null
+                        awardDescription: Bachelor of Arts
+                    requested: 100
+                    count: 2
+                    skip: 0
+                    total: 2
+                  
+                  
           '400':
             $ref: "#/components/responses/400"
           '401':
@@ -1236,6 +1941,30 @@ paths:
                       type: string
                     awardDescription:
                       type: string
+                example:
+                  awardCode: ACCES(TESOL)
+                  awardName: Access
+                  inUse: false
+                  validatingBodyCode: E56
+                  validatingBodyName: University of Edinburgh
+                  extQualAimCode: X99
+                  extQualAimName: No Formal Qualification aim below HE Level
+                  pgOrUgAward: U
+                  createdDate: 07/JUL/1998
+                  toDate: 30/SEP/2001
+                  hoIndicator: x
+                  academicGroupingCode: NGAC
+                  academicGroupingName: Non-graduating - Access Course
+                  eligibleGeneralCouncil: false
+                  eligibleAttendGraduationCeremony: false
+                  procViaGradCeremony: false
+                  displayProgNameInGradProg: false
+                  academicOutcome: 9
+                  edocRegFormFrom: null
+                  awardSortOrder: WA
+                  scqfProgLevel: SCQF7
+                  degreeCertificateTitle: null
+                  awardDescription: Access
           '400':
             $ref: "#/components/responses/400"
           '401':
@@ -1307,6 +2036,26 @@ paths:
                    type: string
                   type:
                    type: string
+              example:
+                subjectCode: 100005
+                subjectName: Clinical engineering
+                inUse: false
+                programmeAreaCode: null
+                programmeAreaName: null
+                subjectGroupCode: null
+                subjectGroupName: null
+                costCentreCode: null
+                costCentreName: null
+                externalSubjectCode: 100005
+                externalSubjectName: clinical engineering
+                roomSpecific: Y
+                atasSensitiveResearch: true
+                atasSensitiveTaught: false
+                level6Unit: null
+                jacsCodeReview: null
+                costCentreReview: null
+                sfcFundingGroupOnSub: null
+                type: HECOS
         '400':
           $ref: "#/components/responses/400"
         '401':
@@ -1367,6 +2116,20 @@ paths:
                       type: string
                     heClassificationSubject:
                       type: string
+                  example:
+                    externalSubjectCode: 100005
+                    externalSubjectName: clinical engineering
+                    shortName: CLINICAL ENGINE
+                    inUse: false
+                    filler: null
+                    hesaSubjectIdentifier: null
+                    subjectIdentifier1: null
+                    subjectIdentifier2: null
+                    nssLevel1: null
+                    nssLevel2: null
+                    nssLevel3: null
+                    subjectDescription: null
+                    heClassificationSubject: 100005
           '400':
             $ref: "#/components/responses/400"
           '401':
@@ -1421,6 +2184,21 @@ paths:
                       type: number
                     total:
                       type: number
+                  example:
+                    unitsOfMeasurements:
+                    - unitsOfMeasurementCode: 1
+                      shortName: YEAR
+                      fullName: Years
+                      unitsOfMeasurementHeid: null
+                    - unitsOfMeasurementCode: 2
+                      shortName: MONTH
+                      fullName: Months
+                      unitsOfMeasurementHeid: null
+                    requested: 100
+                    count: 2
+                    skip: 0
+                    total: 6
+                    
           '400':
             $ref: "#/components/responses/400"
           '401':
@@ -1457,6 +2235,11 @@ paths:
                         type: string
                       unitsOfMeasurementHeid:
                         type: string
+                  example:
+                    unitsOfMeasurementCode: 1
+                    shortName: YEAR
+                    fullName: Years
+                    unitsOfMeasurementHeid: null
           '400':
             $ref: "#/components/responses/400"
           '401':
@@ -1538,6 +2321,43 @@ paths:
                       type: number
                     total:
                       type: number
+                  example:
+                    modesOfAttendance:
+                    - modeOfAtendanceCode: CXFT
+                      shortName: WRITING UP (FT)
+                      fullName: Writing up after full-time study
+                      inUse: true
+                      fteValue: 0
+                      hesaModeOfAttendance: 43
+                      fefcModeOfAttendance: null
+                      fcModeOfAttendance: 1
+                      includeInFds: true
+                      ucasModeOfAttendance: null
+                      fesrModeOfAttendance: PT
+                      defaultFundingWeight: 100
+                      feExternalId: null
+                      nursingBoardMoaCode: PT
+                      edexcelMoaRef: null
+                    - modeOfAtendanceCode: CXPT
+                      shortName: WRITINGUP (PT)
+                      fullName: Writing up after part-time study
+                      inUse: true
+                      fteValue: 0
+                      hesaModeOfAttendance: 44
+                      fefcModeOfAttendance: null
+                      fcModeOfAttendance: 2
+                      includeInFds: true
+                      ucasModeOfAttendance: null
+                      fesrModeOfAttendance: PT
+                      defaultFundingWeight: 100
+                      feExternalId: null
+                      nursingBoardMoaCode: PT
+                      edexcelMoaRef: null
+                    requested: 100
+                    count: 2
+                    skip: 0
+                    total: 10
+                      
           '400':
             $ref: "#/components/responses/400"
           '401':
@@ -1571,36 +2391,52 @@ paths:
                 schema:
                   type: object
                   properties:
-                      modeOfAtendanceCode:
-                        type: string
-                      shortName:
-                        type: string
-                      fullName: 
-                        type: string
-                      inUse:
-                        type: boolean
-                      fteValue:
-                        type: string
-                      hesaModeOfAttendance:
-                        type: string
-                      fefcModeOfAttendance: 
-                        type: string
-                      fcModeOfAttendance:
-                        type: string
-                      includeInFds:
-                        type: boolean
-                      ucasModeOfAttendance:
-                        type: string
-                      fesrModeOfAttendance: 
-                        type: string
-                      defaultFundingWeight:
-                        type: string
-                      feExternalID:
-                        type: string
-                      nursingBoardMoaCode: 
-                        type: string
-                      edexcelMoaRef:
-                        type: string
+                    modeOfAtendanceCode:
+                      type: string
+                    shortName:
+                      type: string
+                    fullName: 
+                      type: string
+                    inUse:
+                      type: boolean
+                    fteValue:
+                      type: string
+                    hesaModeOfAttendance:
+                      type: string
+                    fefcModeOfAttendance: 
+                      type: string
+                    fcModeOfAttendance:
+                      type: string
+                    includeInFds:
+                      type: boolean
+                    ucasModeOfAttendance:
+                      type: string
+                    fesrModeOfAttendance: 
+                      type: string
+                    defaultFundingWeight:
+                      type: string
+                    feExternalID:
+                      type: string
+                    nursingBoardMoaCode: 
+                      type: string
+                    edexcelMoaRef:
+                      type: string
+                  example:
+                    modeOfAtendanceCode: CXFT
+                    shortName: WRITING UP (FT)
+                    fullName: Writing up after full-time study
+                    inUse: true
+                    fteValue: 0
+                    hesaModeOfAttendance: 43
+                    fefcModeOfAttendance: null
+                    fcModeOfAttendance: 1
+                    includeInFds: true
+                    ucasModeOfAttendance: null
+                    fesrModeOfAttendance: PT
+                    defaultFundingWeight: 100
+                    feExternalId: null
+                    nursingBoardMoaCode: PT
+                    edexcelMoaRef: null
           '400':
             $ref: "#/components/responses/400"
           '401':
@@ -1625,6 +2461,8 @@ paths:
                     properties:
                       academicYear:
                         type: string
+                    example:
+                      academicYear: 2024/5
           '400':
             $ref: "#/components/responses/400"
           '401':
@@ -1657,6 +2495,9 @@ paths:
                           startDate:
                             type: string
                             format: date
+                        example:
+                          academicYear: 2023/4
+                          startDate: 11/09/2023
           '400':
             $ref: "#/components/responses/400"
           '401':
@@ -1691,6 +2532,9 @@ paths:
                       startDate:
                         type: string
                         format: date
+                  example:
+                    academicYear: 2023/4
+                    startDate: 11/09/2023
           '400':
             $ref: "#/components/responses/400"
           '401':
@@ -1723,6 +2567,9 @@ paths:
                           startDate:
                             type: string
                             format: date
+                        example:
+                          academicYear: 2023/4
+                          startDate: 11/09/2023
           '400':
             $ref: "#/components/responses/400"
           '401':
@@ -1752,11 +2599,14 @@ paths:
                 schema:
                   type: object
                   properties:
-                      academicYear:
-                        type: string
-                      startDate:
-                        type: string
-                        format: date
+                    academicYear:
+                      type: string
+                    startDate:
+                      type: string
+                      format: date
+                  example:
+                    academicYear: 2023/4
+                    startDate: 11/09/2023
           '400':
             $ref: "#/components/responses/400"
           '401':
@@ -1846,6 +2696,51 @@ paths:
                       type: number
                     total:
                       type: number
+                  example:
+                    departments:
+                    - departmentCode: D001
+                      parentDepartmentCode: null
+                      shortName: null
+                      fullName: University of Macerata (COLINST)
+                      institutionCode: E56
+                      institutionName: University of Edinburgh
+                      inUse: true
+                      unitLevel: 5
+                      facultyCode: null
+                      collegeFac: NSU
+                      canOwnProgramOrCourse: false
+                      parentLevel4Unit: P98
+                      parentLevel5Unit: null
+                      level6SchoolOrSchoolLike: false
+                      schoolSchedule: null
+                      julyCeremonyCode: null
+                      decemberCeremonyCode: null
+                      tlReportSortOrder: null
+                      costCenter: null
+                    - departmentCode: D001
+                      parentDepartmentCode: null
+                      shortName: null
+                      fullName: University of Macerata (COLINST)
+                      institutionCode: E56
+                      institutionName: University of Edinburgh
+                      inUse: true
+                      unitLevel: 5
+                      facultyCode: null
+                      collegeFac: NSU
+                      canOwnProgramOrCourse: false
+                      parentLevel4Unit: P98
+                      parentLevel5Unit: null
+                      level6SchoolOrSchoolLike: false
+                      schoolSchedule: null
+                      julyCeremonyCode: null
+                      decemberCeremonyCode: null
+                      tlReportSortOrder: null
+                      costCenter: null
+                    requested: 2
+                    count: 2
+                    skip: 0
+                    Total: 1290
+                
           '400':
             $ref: "#/components/responses/400"
           '401':
@@ -1917,6 +2812,26 @@ paths:
                         type: string
                       costCenter:
                         type: string
+                  example:
+                    departmentCode: D001
+                    parentDepartmentCode: null
+                    shortName: null
+                    fullName: University of Macerata (COLINST)
+                    institutionCode: E56
+                    institutionName: University of Edinburgh
+                    inUse: true
+                    unitLevel: 5
+                    facultyCode: null
+                    collegeFac: NSU
+                    canOwnProgramOrCourse: false
+                    parentLevel4Unit: P98
+                    parentLevel5Unit: null
+                    level6SchoolOrSchoolLike: false
+                    schoolSchedule: null
+                    julyCeremonyCode: null
+                    decemberCeremonyCode: null
+                    tlReportSortOrder: null
+                    costCenter: null
           '400':
             $ref: "#/components/responses/400"
           '401':
@@ -2104,6 +3019,79 @@ paths:
                       type: number
                     total:
                       type: number
+                  example:
+                          studentCode: S12XXXXX
+                          mstCode: 0000006XXXXX
+                          personIdentifier: null
+                          admissionsAgencyIdentifier: null
+                          externalReference: null
+                          surname: KHAMIS
+                          previousSurname: null
+                          lettersAfterSurname: null
+                          forename1: DORAN
+                          forename2: null
+                          forename3: null
+                          forenameUsed: null
+                          initials: D
+                          gender: M
+                          officialName: Doran Khamis
+                          titleCode: MR
+                          titleName: Mr
+                          preferredPronoun: null
+                          dateOfBirth: 1989-09-23
+                          dateOfDeath: null
+                          nationalInsuranceNumber: null
+                          highestQualificationCode: null
+                          highestQualificationName: null
+                          applicantStatusCode: A
+                          studentStatusCode: null
+                          exStudentStatusCode: null
+                          localEducationAuthorityCode: 331
+                          lastAttendedSchoolCode: null
+                          institutionCode: null
+                          updatedDate: 2012-11-27
+                          ucasId: null
+                          feeStatusCode: N
+                          ucasHomeOrOverseasFlag: null
+                          termTimeAccomodation: null
+                          yearLastAttendedSchoolCode: null
+                          yearLastAttendedInstitute: null
+                          examNumber: null
+                          permissionToDiscussFees: null
+                          acornCategory: null
+                          wpOverarchingFlag: null
+                          ukvi": N
+                          currentStudentCourseJoinCodes: [
+                              S1324506/1
+                          ]
+                          contactAddress: 
+                              addressLine1: BLOCK C, HARDY FARM RESIDENCE
+                              addressLine2: 105 HARDY LANE
+                              addressLine3: MANCHESTER
+                              addressLine4: GREATER MANCHESTER
+                              addressLine5: ENGLAND
+                              postcode: M21 8DN
+                              countryCode: null
+                              startDate: 27/Nov/2012
+                              endDate: null
+                          homeAddress: 
+                              addressLine1: 72 MICKLETON ROAD
+                              addressLine2: EARLSDON
+                              addressLine3: COVENTRY
+                              addressLine4: WEST MIDLANDS
+                              addressLine5: ENGLAND
+                              postcode: CV5 6PQ
+                              countryCode: null
+                              startDate: 27/Nov/2012
+                              endDate: null
+                          contactDetails: 
+                              institutionEmail: null
+                              email: null
+                              alternateEmail: null
+                              phoneNumber1: 447873137354
+                              phoneNumber2: null
+                              phoneNumber3: null
+                         
           '400':
             $ref: "#/components/responses/400"
           '401':
@@ -2158,6 +3146,20 @@ paths:
                       type: string
                     refugeeStatusName: 
                       type: string
+                  example:
+                    mstCode: 000001932XXX
+                    nationalityCode: 631
+                    nationalityName: China
+                    secondNationalityCode: null
+                    secondNationalityName: null
+                    nationalIdentityCode: 01
+                    nationalIdentityName: British
+                    secondNationalIdentityCode: 04
+                    secondNationalIdentityName: Scottish
+                    birthCountryCode: 631
+                    birthCountryName: China
+                    refugeeStatusCode: null
+                    refugeeStatusName: null
           '400':
             $ref: "#/components/responses/400"
           '401':
