@@ -3188,12 +3188,22 @@ paths:
                 schema:
                   type: object
                   properties:
-                    stuCode:
-                      type: string
-                    disabilityCode:
-                      type: string
-                    disabilityName: 
-                      type: string
+                    disabilities:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          stuCode:
+                            type: string
+                          disabilityCode:
+                            type: string
+                          disabilityName: 
+                            type: string
+                        example:
+                           stucode: S1340388
+                           disabilityCode: 98
+                           disabilityName: Prefer not to say
+                           academicYear: null
           '400':
             $ref: "#/components/responses/400"
           '401':
@@ -3218,6 +3228,8 @@ paths:
                   properties:
                     year:
                       type: string
+                  example:
+                    year: 2025
           '400':
             $ref: "#/components/responses/400"
           '401':
@@ -3270,6 +3282,18 @@ paths:
                       type: number
                     total:
                       type: number
+                  example:
+                    courseBlocks:
+                    - course: UTMENGETFS1F
+                      block: 11
+                      year: 1
+                    - course: PRENGOFFRE2F
+                      block: 11
+                      year: 1
+                    requested: 100
+                    count: 2
+                    skip: 0
+                    total: 10000
         '400':
           $ref: "#/components/responses/400"
         '401':
@@ -3327,6 +3351,18 @@ paths:
                       type: number
                     total:
                       type: number
+                  example:
+                    courseBlocks:
+                    - course: UTMENGETFS1F
+                      block: 11
+                      year: 1
+                    - course: PRENGOFFRE2F
+                      block: 11
+                      year: 1
+                    requested: 100
+                    count: 2
+                    skip: 0
+                    total: 10000
         '400':
           $ref: "#/components/responses/400"
         '401':
@@ -3384,6 +3420,18 @@ paths:
                       type: number
                     total:
                       type: number
+                  example:
+                    courseBlocks:
+                    - course: UTMENGETFS1F
+                      block: 11
+                      year: 1
+                    - course: PRENGOFFRE2F
+                      block: 11
+                      year: 1
+                    requested: 100
+                    count: 2
+                    skip: 0
+                    total: 10000
         '400':
           $ref: "#/components/responses/400"
         '401':
@@ -3441,6 +3489,18 @@ paths:
                       type: number
                     total:
                       type: number
+                  example:
+                    courseBlocks:
+                    - course: UTMENGETFS1F
+                      block: 11
+                      year: 1
+                    - course: PRENGOFFRE2F
+                      block: 11
+                      year: 1
+                    requested: 100
+                    count: 2
+                    skip: 0
+                    total: 10000
         '400':
           $ref: "#/components/responses/400"
         '401':
@@ -3534,6 +3594,37 @@ paths:
                     type: string
                   inUse:
                     type: boolean
+                example:
+                  moduleCode: AACE07001
+                  abbreviation: AACE07001
+                  name: Access Humanities 1
+                  homeSubject: AACE
+                  faculty: HSS
+                  department: SU755
+                  scheme: UG
+                  level: 07
+                  credits: 10
+                  contactHours: 30
+                  assesmentPatternCode: AACE07001
+                  assesmentPatternName: 12324
+                  markingSchemeCode: MTM5
+                  markingSchemeName: APT UG Non-Honours Marking Scheme Grade Only
+                  courseTypeCode: STAND
+                  courseTypeName: Standard
+                  externalCreditLevel: 07
+                  parentCourseCode: 12
+                  secondSubject: ACCN
+                  createDate: 06/04/2022
+                  closeDate: null
+                  availability: SS
+                  courseSecretary: 000002041704
+                  status: O
+                  convenorBoardExaminers: 000000001012
+                  yearsTaken: 1
+                  defaultDeliveryPeriod: SEM1
+                  defaultModeOfStudy: CA
+                  excludeFromTeachingLoad: Y
+                  inUse: true
         '400':
           $ref: "#/components/responses/400"
         '401':
@@ -3593,6 +3684,15 @@ paths:
                     type: string
                   inUse: 
                     type: boolean
+                example:
+                  code: ICL1
+                  shortName: ICL1
+                  periodSlot: Autumn Term
+                  periodCode: TERM
+                  sequenceNumber: 501
+                  startWeek: 1
+                  endWeek: 11
+                  inUse: true
         '400':
           $ref: "#/components/responses/400"
         '401':
@@ -3694,6 +3794,37 @@ paths:
                     type: number
                   total:
                     type: number
+                example:
+                  moduleOccurences:
+                    - moduleCode: CLLC11153
+                      occurrence: SS1
+                      academicYear: 2014/5
+                      periodCode: SEM1
+                      schemeCode: PG
+                      levelCode: 11
+                      locationCode: CENTRAL
+                      locationName: Central
+                      targetStudents: 999
+                      actualStudents: 15
+                      actualSets: 0
+                      transfersIn: null
+                      transfersout: null
+                      modulePattern: CLLC11153141
+                      markCode: VERSMP
+                      domainCode: CLLC
+                      domainName: Common Courses (School of Lit Lang and Cult)
+                      moduleTutorCode: 000000002377
+                      beginWeek: 1
+                      endWeek: 11
+                      departmentDepartment: SU795
+                      topicCollection: null
+                      virtualUse: true
+                      mavName: Portfolio of Written Translation Exercises in Chinese 1
+                      occurrenceGroup: 2925A847D5BAF528E063856D10AC9CFD
+                  requested: 100
+                  count: 1
+                  skip: 0
+                  total: 100
         '400':
           $ref: "#/components/responses/400"
         '401':
@@ -3800,6 +3931,37 @@ paths:
                     type: number
                   total:
                     type: number
+                example:
+                  moduleOccurences:
+                    - moduleCode: CLLC11153
+                      occurrence: SS1
+                      academicYear: 2014/5
+                      periodCode: SEM1
+                      schemeCode: PG
+                      levelCode: 11
+                      locationCode: CENTRAL
+                      locationName: Central
+                      targetStudents: 999
+                      actualStudents: 15
+                      actualSets: 0
+                      transfersIn: null
+                      transfersout: null
+                      modulePattern: CLLC11153141
+                      markCode: VERSMP
+                      domainCode: CLLC
+                      domainName: Common Courses (School of Lit Lang and Cult)
+                      moduleTutorCode: 000000002377
+                      beginWeek: 1
+                      endWeek: 11
+                      departmentDepartment: SU795
+                      topicCollection: null
+                      virtualUse: true
+                      mavName: Portfolio of Written Translation Exercises in Chinese 1
+                      occurrenceGroup: 2925A847D5BAF528E063856D10AC9CFD
+                  requested: 100
+                  count: 1
+                  skip: 0
+                  total: 100
         '400':
           $ref: "#/components/responses/400"
         '401':
@@ -3906,6 +4068,37 @@ paths:
                     type: number
                   total:
                     type: number
+                example:
+                  moduleOccurences:
+                    - moduleCode: CLLC11153
+                      occurrence: SS1
+                      academicYear: 2014/5
+                      periodCode: SEM1
+                      schemeCode: PG
+                      levelCode: 11
+                      locationCode: CENTRAL
+                      locationName: Central
+                      targetStudents: 999
+                      actualStudents: 15
+                      actualSets: 0
+                      transfersIn: null
+                      transfersout: null
+                      modulePattern: CLLC11153141
+                      markCode: VERSMP
+                      domainCode: CLLC
+                      domainName: Common Courses (School of Lit Lang and Cult)
+                      moduleTutorCode: 000000002377
+                      beginWeek: 1
+                      endWeek: 11
+                      departmentDepartment: SU795
+                      topicCollection: null
+                      virtualUse: true
+                      mavName: Portfolio of Written Translation Exercises in Chinese 1
+                      occurrenceGroup: 2925A847D5BAF528E063856D10AC9CFD
+                  requested: 100
+                  count: 1
+                  skip: 0
+                  total: 100
         '400':
           $ref: "#/components/responses/400"
         '401':
@@ -4012,6 +4205,37 @@ paths:
                     type: number
                   total:
                     type: number
+                example:
+                  moduleOccurences:
+                    - moduleCode: CLLC11153
+                      occurrence: SS1
+                      academicYear: 2014/5
+                      periodCode: SEM1
+                      schemeCode: PG
+                      levelCode: 11
+                      locationCode: CENTRAL
+                      locationName: Central
+                      targetStudents: 999
+                      actualStudents: 15
+                      actualSets: 0
+                      transfersIn: null
+                      transfersout: null
+                      modulePattern: CLLC11153141
+                      markCode: VERSMP
+                      domainCode: CLLC
+                      domainName: Common Courses (School of Lit Lang and Cult)
+                      moduleTutorCode: 000000002377
+                      beginWeek: 1
+                      endWeek: 11
+                      departmentDepartment: SU795
+                      topicCollection: null
+                      virtualUse: true
+                      mavName: Portfolio of Written Translation Exercises in Chinese 1
+                      occurrenceGroup: 2925A847D5BAF528E063856D10AC9CFD
+                  requested: 100
+                  count: 1
+                  skip: 0
+                  total: 100
         '400':
           $ref: "#/components/responses/400"
         '401':
@@ -4115,6 +4339,38 @@ paths:
                     type: number
                   total:
                     type: number
+                example:
+                  studentCourses:
+                  - joinCode: S2345097/1
+                    studentCode: S2345097
+                    entryYear: 2022/3
+                    course: PTMSCCOMAM1F
+                    block: 12
+                    occurrence: B
+                    courseGroup: PTMSCF01Y
+                    personalTutor: 000002661878
+                    startDate: 2022-09-01
+                    hesaStartDate: 2022-09-01
+                    hesaEndDate: 2023-08-31
+                    endDate: 2023-08-31
+                    expectedEndDate: 2023-08-31
+                    expiryDate: 2023-08-31
+                    modeOfAttendance: FTFY
+                    studentJoinStatus: SS
+                    entryStatus: A
+                    reasonForTansferCode: SC
+                    reasonForTansferDescription: Successful completion of programme
+                    qualificationOnEntry: H0000
+                    countryOfDomicile: 631
+                    programmeLength: 1
+                    unitsLengthCode: 1
+                    unitsLengthName: Years
+                    faculty: SCE
+                    department: SU253
+                  requested: 100
+                  count: 1
+                  skip: 0
+                  total: 1
         '400':
           $ref: "#/components/responses/400"
         '401':
@@ -4223,6 +4479,38 @@ paths:
                     type: number
                   total:
                     type: number
+              example:
+                studentCourses:
+                - joinCode: S2345097/1
+                  studentCode: S2345097
+                  entryYear: 2022/3
+                  course: PTMSCCOMAM1F
+                  block: 12
+                  occurrence: B
+                  courseGroup: PTMSCF01Y
+                  personalTutor: 000002661878
+                  startDate: 2022-09-01
+                  hesaStartDate: 2022-09-01
+                  hesaEndDate: 2023-08-31
+                  endDate: 2023-08-31
+                  expectedEndDate: 2023-08-31
+                  expiryDate: 2023-08-31
+                  modeOfAttendance: FTFY
+                  studentJoinStatus: SS
+                  entryStatus: A
+                  reasonForTansferCode: SC
+                  reasonForTansferDescription: Successful completion of programme
+                  qualificationOnEntry: H0000
+                  countryOfDomicile: 631
+                  programmeLength: 1
+                  unitsLengthCode: 1
+                  unitsLengthName: Years
+                  faculty: SCE
+                  department: SU253
+                requested: 100
+                count: 1
+                skip: 0
+                total: 1
         '400':
           $ref: "#/components/responses/400"
         '401':
@@ -4331,6 +4619,38 @@ paths:
                     type: number
                   total:
                     type: number
+                example:
+                  studentCourses:
+                  - joinCode: S2345097/1
+                    studentCode: S2345097
+                    entryYear: 2022/3
+                    course: PTMSCCOMAM1F
+                    block: 12
+                    occurrence: B
+                    courseGroup: PTMSCF01Y
+                    personalTutor: 000002661878
+                    startDate: 2022-09-01
+                    hesaStartDate: 2022-09-01
+                    hesaEndDate: 2023-08-31
+                    endDate: 2023-08-31
+                    expectedEndDate: 2023-08-31
+                    expiryDate: 2023-08-31
+                    modeOfAttendance: FTFY
+                    studentJoinStatus: SS
+                    entryStatus: A
+                    reasonForTansferCode: SC
+                    reasonForTansferDescription: Successful completion of programme
+                    qualificationOnEntry: H0000
+                    countryOfDomicile: 631
+                    programmeLength: 1
+                    unitsLengthCode: 1
+                    unitsLengthName: Years
+                    faculty: SCE
+                    department: SU253
+                  requested: 100
+                  count: 1
+                  skip: 0
+                  total: 1
         '400':
           $ref: "#/components/responses/400"
         '401':
@@ -4439,6 +4759,38 @@ paths:
                     type: number
                   total:
                     type: number
+                example:
+                  studentCourses:
+                  - joinCode: S2345097/1
+                    studentCode: S2345097
+                    entryYear: 2022/3
+                    course: PTMSCCOMAM1F
+                    block: 12
+                    occurrence: B
+                    courseGroup: PTMSCF01Y
+                    personalTutor: 000002661878
+                    startDate: 2022-09-01
+                    hesaStartDate: 2022-09-01
+                    hesaEndDate: 2023-08-31
+                    endDate: 2023-08-31
+                    expectedEndDate: 2023-08-31
+                    expiryDate: 2023-08-31
+                    modeOfAttendance: FTFY
+                    studentJoinStatus: SS
+                    entryStatus: A
+                    reasonForTansferCode: SC
+                    reasonForTansferDescription: Successful completion of programme
+                    qualificationOnEntry: H0000
+                    countryOfDomicile: 631
+                    programmeLength: 1
+                    unitsLengthCode: 1
+                    unitsLengthName: Years
+                    faculty: SCE
+                    department: SU253
+                  requested: 100
+                  count: 1
+                  skip: 0
+                  total: 1
         '400':
           $ref: "#/components/responses/400"
         '401':
@@ -4547,6 +4899,38 @@ paths:
                     type: number
                   total:
                     type: number
+                example:
+                  studentCourses:
+                  - joinCode: S2345097/1
+                    studentCode: S2345097
+                    entryYear: 2022/3
+                    course: PTMSCCOMAM1F
+                    block: 12
+                    occurrence: B
+                    courseGroup: PTMSCF01Y
+                    personalTutor: 000002661878
+                    startDate: 2022-09-01
+                    hesaStartDate: 2022-09-01
+                    hesaEndDate: 2023-08-31
+                    endDate: 2023-08-31
+                    expectedEndDate: 2023-08-31
+                    expiryDate: 2023-08-31
+                    modeOfAttendance: FTFY
+                    studentJoinStatus: SS
+                    entryStatus: A
+                    reasonForTansferCode: SC
+                    reasonForTansferDescription: Successful completion of programme
+                    qualificationOnEntry: H0000
+                    countryOfDomicile: 631
+                    programmeLength: 1
+                    unitsLengthCode: 1
+                    unitsLengthName: Years
+                    faculty: SCE
+                    department: SU253
+                  requested: 100
+                  count: 1
+                  skip: 0
+                  total: 1
         '400':
           $ref: "#/components/responses/400"
         '401':
@@ -4616,6 +5000,18 @@ paths:
                     type: number
                   total:
                     type: number
+                example:
+                  academicYearPeriods:
+                  - academicYear: 2022/3
+                    period: LLL5
+                    periodWeekNumber: 1
+                    academicYearWeekNumber: 29
+                    startDate: 2023-01-02
+                    endDate: 2023-01-08
+                  requested: 100
+                  count: 1
+                  skip: 0
+                  total: 1
         '400':
           $ref: "#/components/responses/400"
         '401':
@@ -4850,51 +5246,68 @@ paths:
               schema:
                 type: object
                 properties:
-                  openCourseEnrolments:
+                  dietCode:
+                    type: string
+                  programme:
+                    type: string
+                  courseCode: 
+                    type: string
+                  coursePeriod:
+                    type: string
+                  courseOccurrance:
+                    type: string
+                  inUse:
+                    type: boolean
+                  programmeDietModule:
                     type: array
                     items:
-                     properties:
-                          dietCode:
-                            type: string
-                          programme:
-                            type: string
-                          courseCode: 
-                            type: string
-                          coursePeriod:
-                            type: string
-                          courseOccurrance:
-                            type: string
-                          inUse:
-                            type: boolean
-                          programmeDietModule:
-                            type: array
-                            items:
-                               type: object
-                               properties:
-                                selectionStatus:
-                                  type: string
-                                relativeYear:
-                                  type: string
-                                elementSequence:
-                                  type: string
-                                moduleCollection:
-                                  type: string
-                                sourceOfLevel:
-                                  type: string
-                                moduleCredits:
-                                  type: string
-                                selectionData:
-                                  type: string
-                                minimumValues: 
-                                  type: string
-                                maximumValues:
-                                  type: string
-                                groupMinimumValue:
-                                  type: string
-                                groupMaximumValue:
-                                  type: string
-                                modulePeriod: 
-                                  type: string
+                       type: object
+                       properties:
+                        selectionStatus:
+                          type: string
+                        relativeYear:
+                          type: string
+                        elementSequence:
+                          type: string
+                        moduleCollection:
+                          type: string
+                        sourceOfLevel:
+                          type: string
+                        moduleCredits:
+                          type: string
+                        selectionData:
+                          type: string
+                        minimumValues: 
+                          type: string
+                        maximumValues:
+                          type: string
+                        groupMinimumValue:
+                          type: string
+                        groupMaximumValue:
+                          type: string
+                        modulePeriod: 
+                          type: string
+                example:
+                  dietCode: PRLLMLEGRS1F-11B-09
+                  programme: PRLLM
+                  coursePeriod: SEM
+                  courseOccurrance: B
+                  inUse: true
+                  academicYear: 2009/0
+                  programmeDietModule:
+                  -   selectionStatus: C
+                      relativeYear: 0
+                      elementSequence: 010
+                      moduleCollection: LAWS11104
+                      sourceOfLevel: M
+                      moduleCredits: MOD
+                      selectionData: CRD
+                      minimumValues: 20
+                      maximumValues: 20
+                      groupMinimumValue: null
+                      groupMaximumValue: null
+                      modulePeriod: SEM1  
+                           
         '400':
           $ref: "#/components/responses/400"
         '401':
@@ -4974,6 +5387,26 @@ paths:
                                   type: string
                                 modulePeriod: 
                                   type: string
+                example:
+                  dietCode: PRLLMLEGRS1F-11B-09
+                  programme: PRLLM
+                  coursePeriod: SEM
+                  courseOccurrance: B
+                  inUse: true
+                  academicYear: 2009/0
+                  programmeDietModule:
+                  -   selectionStatus: C
+                      relativeYear: 0
+                      elementSequence: 010
+                      moduleCollection: LAWS11104
+                      sourceOfLevel: M
+                      moduleCredits: MOD
+                      selectionData: CRD
+                      minimumValues: 20
+                      maximumValues: 20
+                      groupMinimumValue: null
+                      groupMaximumValue: null
+                      modulePeriod: SEM1  
         '400':
           $ref: "#/components/responses/400"
         '401':
