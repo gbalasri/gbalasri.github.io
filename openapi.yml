@@ -5114,6 +5114,31 @@ paths:
                     type: number
                   total:
                     type: number
+                example:
+                  scjCode: S1643243/2
+                  courseCode: UTBSIMM
+                  academicYear: 2024/5
+                  seqNumber: 08
+                  courseBlock: 41
+                  occurrence: A
+                  department: SU541
+                  courseGroup: UT4
+                  udsGroup: CMSCIX
+                  faculty: SCE
+                  enrolmentStatus: MM
+                  modeOfAttendance: FTFY
+                  lastAttendanceDate: 2024-10-03
+                  startDate: 2024-08-01
+                  endDate: null
+                  acceptedRegulations: Y
+                  acceptedRegulationsDate: 2024-09-14
+                  exchangeType: NOEX
+                  externalStudyLocation: X
+                  termAddress: 2
+                  termPostcode: EH22 3DQ
+                  programme: UG-BIOSCI
+                  fullyAdmittedDate: 06/08/2019
+                  attendanceConfirmedBy: 000001540503
         '400':
           $ref: "#/components/responses/400"
         '401':
@@ -5122,14 +5147,14 @@ paths:
          $ref: "#/components/responses/403"
         '404':
           $ref: "#/components/responses/404"  
-  /student-module/student-course-code/{student-course-code}/academic-year/{academic-year}:
+  /student-module/student-join-code/{student-join-code}/academic-year/{academic-year}:
      get:
       tags:
         - Students
       summary: Find the student modules by giving the student-course-code and academic-year
       description: To get the student modules detail
       parameters:
-        - name: student-course-code
+        - name: student-join-code
           in: path
           required: true
           schema:
@@ -5213,6 +5238,56 @@ paths:
                     type: number
                   total:
                     type: number
+              example:
+                studentModules:
+                - joinCode: S0198210/3
+                  moduleCode: CMSE11456
+                  academicYear: 2024/5
+                  occurrence: SS1
+                  periodSlotCode: SB3
+                  schemeCode: PG
+                  levelCode: 11
+                  moduleSelectionStatusCode: C1PGN
+                  moduleSelectionStatusDesc: PG Y1 compulsory
+                  creditsPassed: null
+                  studentCourseEnrollment: 01
+                  currentAttempt: 1
+                  entryDate: 2024-07-22
+                  completedNumber: 0
+                  actualMark: null
+                  actualGrade: null
+                  agreedMark: null
+                  agreedGrade: null
+                  resultOfModule: null
+                  initialSasStatus: null
+                  processStatus: null
+                  scalingStatus: null
+                - joinCode: S0198210/3
+                  moduleCode: CMSE11478
+                  academicYear: 2024/5
+                  occurrence: SS1
+                  periodSlotCode: SB1
+                  schemeCode: PG
+                  levelCode: 11
+                  moduleSelectionStatusCode: C1PGN
+                  moduleSelectionStatusDesc: PG Y1 compulsory
+                  creditsPassed: null
+                  studentCourseEnrollment: 01
+                  currentAttempt: 1
+                  entryDate: 2024-07-22
+                  completedNumber: 0
+                  actualMark: null
+                  actualGrade: null
+                  agreedMark: null
+                  agreedGrade: null
+                  resultOfModule: null
+                  initialSasStatus: null
+                  processStatus: null
+                  scalingStatus: null
+                requested: 10
+                count: 2
+                skip: 0
+                total: 16
         '400':
           $ref: "#/components/responses/400"
         '401':
