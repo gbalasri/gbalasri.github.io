@@ -5147,7 +5147,7 @@ paths:
          $ref: "#/components/responses/403"
         '404':
           $ref: "#/components/responses/404"  
-  /student-module/student-join-code/{student-join-code}/academic-year/{academic-year}:
+  /student-modules/student-join-code/{student-join-code}/academic-year/{academic-year}:
      get:
       tags:
         - Students
