@@ -3200,7 +3200,7 @@ paths:
                           disabilityName: 
                             type: string
                         example:
-                           stucode: S1340388
+                           stucode: S13403XX
                            disabilityCode: 98
                            disabilityName: Prefer not to say
                            academicYear: null
@@ -4341,8 +4341,8 @@ paths:
                     type: number
                 example:
                   studentCourses:
-                  - joinCode: S2345097/1
-                    studentCode: S2345097
+                  - joinCode: S2345XXX/1
+                    studentCode: S2345XXX
                     entryYear: 2022/3
                     course: PTMSCCOMAM1F
                     block: 12
@@ -4481,8 +4481,8 @@ paths:
                     type: number
               example:
                 studentCourses:
-                - joinCode: S2345097/1
-                  studentCode: S2345097
+                - joinCode: S2345XXX/1
+                  studentCode: S2345XXX
                   entryYear: 2022/3
                   course: PTMSCCOMAM1F
                   block: 12
@@ -4621,8 +4621,8 @@ paths:
                     type: number
                 example:
                   studentCourses:
-                  - joinCode: S2345097/1
-                    studentCode: S2345097
+                  - joinCode: S2345XXX/1
+                    studentCode: S2345XXX
                     entryYear: 2022/3
                     course: PTMSCCOMAM1F
                     block: 12
@@ -4761,8 +4761,8 @@ paths:
                     type: number
                 example:
                   studentCourses:
-                  - joinCode: S2345097/1
-                    studentCode: S2345097
+                  - joinCode: S2345XXX/1
+                    studentCode: S2345XXX
                     entryYear: 2022/3
                     course: PTMSCCOMAM1F
                     block: 12
@@ -4901,8 +4901,8 @@ paths:
                     type: number
                 example:
                   studentCourses:
-                  - joinCode: S2345097/1
-                    studentCode: S2345097
+                  - joinCode: S2345XXX/1
+                    studentCode: S2345XXX
                     entryYear: 2022/3
                     course: PTMSCCOMAM1F
                     block: 12
@@ -5240,8 +5240,8 @@ paths:
                     type: number
               example:
                 studentModules:
-                - joinCode: S0198210/3
-                  moduleCode: CMSE11456
+                - joinCode: S0198XXX/3
+                  moduleCode: CMSE11XXX
                   academicYear: 2024/5
                   occurrence: SS1
                   periodSlotCode: SB3
@@ -5262,7 +5262,7 @@ paths:
                   initialSasStatus: null
                   processStatus: null
                   scalingStatus: null
-                - joinCode: S0198210/3
+                - joinCode: S0198XXX/3
                   moduleCode: CMSE11478
                   academicYear: 2024/5
                   occurrence: SS1
