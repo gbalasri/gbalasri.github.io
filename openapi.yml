@@ -5076,6 +5076,8 @@ paths:
                             type: string
                           enrolmentStatus:
                             type: string
+                          enrolmentStatusDescription:
+                            type: string
                           modeOfAttendance:
                             type: string
                           lastAttendanceDate:
@@ -5126,6 +5128,7 @@ paths:
                   udsGroup: CMSCIX
                   faculty: SCE
                   enrolmentStatus: MM
+                  enrolmentStatusDescription: Fully matriculated
                   modeOfAttendance: FTFY
                   lastAttendanceDate: 2024-10-03
                   startDate: 2024-08-01
